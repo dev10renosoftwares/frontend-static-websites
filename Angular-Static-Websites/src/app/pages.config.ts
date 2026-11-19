@@ -41,5 +41,14 @@ export const PAGES: PageEntry[] = [
     description: 'Matrimonial platform where profiles are backed by short interest videos.',
     category: 'Matrimony',
     accent: '#5C7068'
+  },
+  {
+    slug: 'aakash-unani',
+    file: 'aakash-unani.html',
+    title: 'Aakash Unani & Ayurvedic — Vailoo, Kokernag',
+    name: 'Aakash Unani & Ayurvedic',
+    description: 'Clinic website with treatments, doctor profile, online consultation and WhatsApp booking.',
+    category: 'Healthcare',
+    accent: '#C4A04F'
   }
 ];
