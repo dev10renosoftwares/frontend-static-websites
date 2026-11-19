@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KHANDAR – Matrimony where interests are proven</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCFBF9;--soft:#F3F1ED;--line:#E4E1DB;--ink:#242B28;--mute:#6B736F;--sage:#5C7068;--sage-d:#47594F;--sage-l:#E6ECE8;--gold:#B79A6B}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.15;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+header{position:sticky;top:0;z-index:20;background:rgba(252,251,249,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Fraunces',serif;font-size:1.45rem;letter-spacing:.14em;font-weight:600;color:var(--sage-d)}
+.logo i{font-style:normal;color:var(--gold)}
+nav ul{display:flex;gap:28px;list-style:none;padding:0;font-size:.95rem;color:var(--mute)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:600;font-size:.95rem;border:1px solid var(--sage);cursor:pointer;font-family:inherit;transition:.2s}
+.btn.fill{background:var(--sage);color:#fff}.btn.fill:hover{background:var(--sage-d)}
+.btn.line{background:transparent;color:var(--sage-d)}.btn.line:hover{background:var(--sage-l)}
+.hero{padding:72px 0 80px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5vw,3.6rem);margin-bottom:20px}
+.hero p.lead{font-size:1.12rem;color:var(--mute);max-width:30em;margin-bottom:30px}
+.search{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:10px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 10px 30px rgba(36,43,40,.06)}
+.search label{font-size:.75rem;color:var(--mute);display:block;padding-left:4px}
+.search select{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;background:var(--bg);color:var(--ink)}
+.search .btn{align-self:end}
+.trust{display:flex;gap:22px;margin-top:22px;font-size:.88rem;color:var(--mute);flex-wrap:wrap}
+.trust span::before{content:"✓ ";color:var(--sage)}
+.stage{position:relative;height:460px}
+.proof{position:absolute;width:62%;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 18px 40px rgba(36,43,40,.10);cursor:pointer;transition:transform .25s}
+.proof:hover{transform:translateY(-4px)}
+.proof.a{left:0;top:0}.proof.b{right:0;bottom:0}
+.thumb{position:relative;aspect-ratio:4/3;background:var(--sage-l) center/cover no-repeat}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(36,43,40,.45))}
+.play{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center}
+.play::before{content:"";border-left:15px solid var(--sage-d);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.tag{position:absolute;z-index:2;left:12px;bottom:10px;color:#fff;font-size:.8rem;font-weight:600}
+.wm{position:absolute;z-index:2;right:10px;top:10px;font-size:.68rem;color:rgba(255,255,255,.8);background:rgba(36,43,40,.35);padding:2px 8px;border-radius:999px}
+.proof .meta{padding:14px 16px;font-size:.9rem}
+.proof .meta b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:1.05rem}
+.proof .meta small{color:var(--mute)}
+section{padding:80px 0}
+.alt{background:var(--soft)}
+.head{max-width:620px;margin-bottom:44px}
+.head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:12px}
+.head p{color:var(--mute)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.step{border-top:2px solid var(--sage);padding-top:18px}
+.step h3{font-size:1.25rem;margin:6px 0 8px}
+.step p{color:var(--mute);font-size:.96rem}
+.step span{font-family:'Fraunces',serif;color:var(--gold);font-size:1.1rem}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font:inherit;font-size:.9rem;cursor:pointer;color:var(--mute)}
+.chip[aria-pressed=true]{background:var(--sage);border-color:var(--sage);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:pointer;transition:box-shadow .2s}
+.card:hover{box-shadow:0 14px 30px rgba(36,43,40,.10)}
+.card .body{padding:16px}
+.card h3{font-size:1.1rem}
+.card p{font-size:.88rem;color:var(--mute);margin:2px 0 10px}
+.badge{display:inline-block;background:var(--sage-l);color:var(--sage-d);font-size:.76rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-right:4px}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.f{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
+.f .ic{width:42px;height:42px;border-radius:12px;background:var(--sage-l);display:grid;place-items:center;font-size:1.2rem;margin-bottom:14px}
+.f h3{font-size:1.05rem;margin-bottom:6px}.f p{font-size:.9rem;color:var(--mute)}
+.cta{background:var(--sage-d);color:#fff;border-radius:28px;padding:56px 40px;text-align:center}
+.cta h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:12px}
+.cta p{opacity:.85;margin-bottom:26px}
+.cta .btn{background:#fff;color:var(--sage-d);border-color:#fff}
+footer{border-top:1px solid var(--line);padding:36px 0;font-size:.88rem;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#modal{position:fixed;inset:0;background:rgba(36,43,40,.7);display:none;place-items:center;z-index:50;padding:20px}
+#modal.on{display:grid}
+.mbox{background:#fff;border-radius:20px;width:min(760px,100%);overflow:hidden}
+.vid{position:relative;aspect-ratio:16/9;background:#000}
+.vid iframe{width:100%;height:100%;border:0}
+.vid .wmk{position:absolute;inset:0;pointer-events:none;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.35);font-weight:600;font-size:1.3rem;transform:rotate(-14deg);text-shadow:0 0 6px rgba(0,0,0,.3)}
+.mfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;flex-wrap:wrap}
+.mfoot small{color:var(--mute)}
+@media(max-width:900px){
+ nav ul{display:none}
+ .hero{grid-template-columns:1fr;padding-top:44px}
+ .stage{height:420px}
+ .steps,.feat{grid-template-columns:1fr 1fr}
+ .search{grid-template-columns:1fr}
+}
+@media(max-width:560px){.steps,.feat{grid-template-columns:1fr}.proof{width:72%}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="logo" href="#">KHANDAR<i>.</i></a>
+ <nav><ul><li><a href="#how">How it works</a></li><li><a href="#profiles">Profiles</a></li><li><a href="#safety">Privacy</a></li></ul></nav>
+ <div style="display:flex;gap:10px"><a class="btn line" href="#">Log in</a><a class="btn fill" href="#join">Create profile</a></div>
+</div></header>
+
+<main>
+<div class="wrap hero">
+ <div>
+  <h1>Don’t just say it. Show what you love.</h1>
+  <p class="lead">KHANDAR profiles carry short, face-free videos of real hobbies and skills, from rolling rotis to playing the guitar. Get to know a person before the first hello.</p>
+  <form class="search" onsubmit="event.preventDefault();location.hash='#profiles'">
+   <div><label for="s1">I’m looking for</label><select id="s1"><option>Bride</option><option>Groom</option></select></div>
+   <div><label for="s2">Age</label><select id="s2"><option>23–27</option><option>28–32</option><option>33–38</option></select></div>
+   <div><label for="s3">Interest proof</label><select id="s3"><option>Any</option><option>Cooking</option><option>Music</option><option>Fitness</option><option>Art</option></select></div>
+   <button class="btn fill">Find matches</button>
+  </form>
+  <div class="trust"><span>Verified identity</span><span>No faces in videos</span><span>Private until mutual interest</span></div>
+ </div>
+ <div class="stage" aria-label="Sample interest proofs">
+  <div class="proof a" data-v="ZmpTA0MqF4A" data-t="Round rotis, in under a minute" data-w="Priya S." tabindex="0" role="button">
+   <div class="thumb" style="background-image:url(https://img.youtube.com/vi/ZmpTA0MqF4A/hqdefault.jpg)"><span class="wm">Viewer ID watermark</span><span class="play"></span><span class="tag">Cooking · 0:28</span></div>
+   <div class="meta"><b>Priya, 27</b><small>Pune · Product designer</small></div>
+  </div>
+  <div class="proof b" data-v="jNQXAC9IVRw" data-t="Evening practice on the guitar" data-w="Arjun M." tabindex="0" role="button">
+   <div class="thumb" style="background-image:url(https://img.youtube.com/vi/jNQXAC9IVRw/hqdefault.jpg)"><span class="wm">Viewer ID watermark</span><span class="play"></span><span class="tag">Music · 0:22</span></div>
+   <div class="meta"><b>Arjun, 30</b><small>Bengaluru · Software engineer</small></div>
+  </div>
+ </div>
+</div>
+
+<section class="alt" id="how"><div class="wrap">
+ <div class="head"><h2>A profile that proves itself</h2><p>Every interest on KHANDAR can carry a short video. It takes a few minutes and tells a better story than a paragraph.</p></div>
+ <div class="steps">
+  <div class="step"><span>Step 1</span><h3>Pick your interests</h3><p>Choose up to five hobbies or skills that say something true about you.</p></div>
+  <div class="step"><span>Step 2</span><h3>Record a 20-second clip</h3><p>Film inside the app, hands and activity only. A random code word on paper confirms it’s really you.</p></div>
+  <div class="step"><span>Step 3</span><h3>Earn a Verified badge</h3><p>Verified interests rank higher in search, and the right people start conversations.</p></div>
+ </div>
+</div></section>
+
+<section id="profiles"><div class="wrap">
+ <div class="head"><h2>Meet people through what they do</h2><p>Sample profiles. Tap any card to watch the proof video.</p></div>
+ <div class="chips" role="group" aria-label="Filter by interest">
+  <button class="chip" aria-pressed="true" data-f="all">All</button>
+  <button class="chip" aria-pressed="false" data-f="Cooking">Cooking</button>
+  <button class="chip" aria-pressed="false" data-f="Music">Music</button>
+  <button class="chip" aria-pressed="false" data-f="Fitness">Fitness</button>
+  <button class="chip" aria-pressed="false" data-f="Art">Art</button>
+ </div>
+ <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="alt" id="safety"><div class="wrap">
+ <div class="head"><h2>Built for privacy first</h2><p>Families trust us with personal moments, so protection is part of every video.</p></div>
+ <div class="feat">
+  <div class="f"><div class="ic">🙌</div><h3>Faces stay private</h3><p>Videos show the activity, not the person. No face, no deepfake risk.</p></div>
+  <div class="f"><div class="ic">🔒</div><h3>Mutual-interest unlock</h3><p>Videos open only after both sides accept a request.</p></div>
+  <div class="f"><div class="ic">💧</div><h3>Viewer watermark</h3><p>The viewer’s ID appears faintly on playback, which discourages leaks.</p></div>
+  <div class="f"><div class="ic">🛡️</div><h3>Screen capture blocked</h3><p>Recording is blocked or blanked in the app. Report and takedown take one tap.</p></div>
+ </div>
+</div></section>
+
+<section id="join"><div class="wrap">
+ <div class="cta"><h2>Your hobbies are a good place to start.</h2><p>Create your profile in 5 minutes and add your first interest video.</p><a class="btn" href="#">Create free profile</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span><b class="logo" style="font-size:1rem">KHANDAR.</b> &nbsp;© 2026 KHANDAR. Demo layout.</span><span>About &nbsp; Privacy &nbsp; Terms &nbsp; Help</span></div></footer>
+
+<div id="modal" role="dialog" aria-modal="true" aria-label="Interest video">
+ <div class="mbox">
+  <div class="vid"><iframe id="frame" allow="autoplay; encrypted-media" allowfullscreen title="Interest proof video"></iframe><div class="wkm wmk" id="wmk">Viewed by: Rahul K. · ID 48213</div></div>
+  <div class="mfoot"><div><b id="mt"></b><br><small id="mw"></small></div><div><button class="btn line" id="close">Close</button> <button class="btn fill">Send interest</button></div></div>
+ </div>
+</div>
+
+<script>
+const P=[
+ ["Priya","27","Pune","Cooking","Rolling round rotis","ZmpTA0MqF4A"],
+ ["Arjun","30","Bengaluru","Music","Acoustic guitar","jNQXAC9IVRw"],
+ ["Neha","26","Delhi","Fitness","Morning yoga flow","9bZkp7q19f0"],
+ ["Rohan","29","Mumbai","Cooking","Hand-tossed pizza dough","kJQP7kiw5Fk"],
+ ["Ananya","28","Jaipur","Art","Madhubani painting","5qap5aO4i9A"],
+ ["Kabir","31","Srinagar","Fitness","Trail running","dQw4w9WgXcQ"]
+];
+const g=document.getElementById('grid');
+g.innerHTML=P.map(p=>`<article class="card" data-c="${p[3]}" data-v="${p[5]}" data-t="${p[4]}" data-w="${p[0]}" tabindex="0" role="button">
+ <div class="thumb" style="background-image:url(https://img.youtube.com/vi/${p[5]}/hqdefault.jpg)"><span class="play"></span><span class="tag">${p[3]}</span></div>
+ <div class="body"><h3>${p[0]}, ${p[1]}</h3><p>${p[2]} · ${p[4]}</p><span class="badge">Verified ${p[3]}</span></div></article>`).join('');
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+ document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));
+ document.querySelectorAll('.card').forEach(k=>k.style.display=(c.dataset.f==='all'||k.dataset.c===c.dataset.f)?'':'none');
+});
+const m=document.getElementById('modal'),f=document.getElementById('frame');
+function open_(el){f.src='https://www.youtube-nocookie.com/embed/'+el.dataset.v+'?rel=0&modestbranding=1';
+ document.getElementById('mt').textContent=el.dataset.t;document.getElementById('mw').textContent='Shared by '+el.dataset.w+' · Verified interest';m.classList.add('on');}
+function close_(){m.classList.remove('on');f.src='';}
+document.addEventListener('click',e=>{const el=e.target.closest('[data-v]');if(el)open_(el);if(e.target===m)close_();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close_();if(e.key==='Enter'&&e.target.dataset.v)open_(e.target);});
+document.getElementById('close').onclick=close_;
+</script>
+</body>
+</html>

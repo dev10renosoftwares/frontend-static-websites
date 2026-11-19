@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wah Kabab – Authentic Mughlai in Lal Chowk, Srinagar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       1. DESIGN TOKENS
+       ========================================================== */
+    :root {
+      /* Surfaces */
+      --bg: #FFFBF4;
+      --soft: #FBF1DF;
+      --card: #fff;
+      --line: #EFE1C8;
+
+      /* Text */
+      --ink: #2B1D16;
+      --mute: #7A6657;
+
+      /* Brand colours (chili, saffron, mint) */
+      --chili: #B3321F;
+      --chili-d: #8F2616;
+      --saffron: #E9A82B;
+      --saffron-l: #FDEFC9;
+      --mint: #3F6B47;
+      --mint-l: #E3EFDF;
+      --dark: #2A1810;
+    }
+
+    /* ==========================================================
+       2. BASE
+       ========================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--saffron);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 84px 0;
+    }
+
+    .alt {
+      background: var(--soft);
+    }
+
+    /* ==========================================================
+       3. BUTTONS, TAGS AND SMALL UI
+       ========================================================== */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .95rem;
+      border: 1.5px solid var(--chili);
+      cursor: pointer;
+      font-family: inherit;
+      transition: .2s;
+      text-align: center;
+    }
+
+    .btn.fill {
+      background: var(--chili);
+      color: #fff;
+    }
+
+    .btn.fill:hover {
+      background: var(--chili-d);
+    }
+
+    .btn.line {
+      color: var(--chili);
+      background: transparent;
+    }
+
+    .btn.line:hover {
+      background: var(--saffron-l);
+    }
+
+    .btn.gold {
+      background: var(--saffron);
+      border-color: var(--saffron);
+      color: var(--dark);
+    }
+
+    .btn.gold:hover {
+      filter: brightness(.95);
+    }
+
+    .tags,
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tags {
+      margin-bottom: 28px;
+    }
+
+    .chips {
+      margin-top: 18px;
+    }
+
+    .tag {
+      font-size: .82rem;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 4px 14px;
+      color: var(--mute);
+    }
+
+    .pill {
+      font-size: .72rem;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+
+    .pop {
+      background: var(--saffron-l);
+      color: #8A5A00;
+    }
+
+    .halal {
+      background: var(--mint-l);
+      color: var(--mint);
+    }
+
+    .stars {
+      color: #D98F0B;
+      letter-spacing: 2px;
+    }
+
+    .open {
+      color: var(--mint);
+      font-weight: 600;
+    }
+
+    .note {
+      font-size: .78rem;
+      color: var(--mute);
+      margin-top: 10px;
+    }
+
+    /* Section heading row */
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 34px;
+      flex-wrap: wrap;
+    }
+
+    .head h2 {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      color: var(--dark);
+    }
+
+    .head p {
+      color: var(--mute);
+      max-width: 32em;
+      margin-top: 8px;
+    }
+
+    /* ==========================================================
+       4. TOP BAR AND HEADER
+       ========================================================== */
+    .top {
+      background: var(--mint);
+      color: #F3FAEF;
+      font-size: .85rem;
+      text-align: center;
+      padding: 8px 12px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 251, 244, .95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--chili);
+      line-height: 1;
+    }
+
+    .logo small {
+      display: block;
+      font-family: 'Inter';
+      font-size: .62rem;
+      letter-spacing: .2em;
+      color: var(--mute);
+      font-weight: 500;
+      margin-top: 5px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      padding: 0;
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--mute);
+    }
+
+    nav a:hover {
+      color: var(--chili);
+    }
+
+    /* ==========================================================
+       5. HERO
+       ========================================================== */
+    .hero {
+      padding: 56px 0 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .rate {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .92rem;
+      color: var(--mute);
+      margin-bottom: 18px;
+      background: var(--saffron-l);
+      padding: 6px 14px 6px 8px;
+      border-radius: 999px;
+      flex-wrap: wrap;
+    }
+
+    .rate b {
+      background: var(--chili);
+      color: #fff;
+      border-radius: 999px;
+      padding: 2px 12px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.2vw, 4rem);
+      margin-bottom: 16px;
+      color: var(--dark);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--chili);
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--mute);
+      max-width: 30em;
+      margin-bottom: 24px;
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Photo collage */
+    .collage {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 14px;
+      height: 480px;
+      position: relative;
+    }
+
+    .collage div {
+      border-radius: 22px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #F3C675, #D9684A);
+    }
+
+    .collage .big {
+      grid-row: 1 / 3;
+    }
+
+    .badge {
+      position: absolute;
+      left: -18px;
+      bottom: 36px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 18px;
+      box-shadow: 0 14px 32px rgba(43, 29, 22, .18);
+      font-size: .85rem;
+    }
+
+    .badge b {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--chili);
+    }
+
+    /* Quick-info strip */
+    .strip {
+      background: var(--dark);
+      color: #EBD9BF;
+    }
+
+    .strip .wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding-top: 22px;
+      padding-bottom: 22px;
+    }
+
+    .strip div {
+      font-size: .9rem;
+    }
+
+    .strip b {
+      display: block;
+      color: var(--saffron);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      margin-bottom: 2px;
+    }
+
+    /* ==========================================================
+       6. MENU
+       ========================================================== */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .tab {
+      font: inherit;
+      font-size: .92rem;
+      font-weight: 500;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 9px 22px;
+      cursor: pointer;
+      color: var(--mute);
+    }
+
+    .tab[aria-selected=true] {
+      background: var(--chili);
+      border-color: var(--chili);
+      color: #fff;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 22px;
+    }
+
+    .dish {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: .2s;
+    }
+
+    .dish:hover {
+      box-shadow: 0 16px 34px rgba(43, 29, 22, .12);
+      transform: translateY(-3px);
+    }
+
+    .ph {
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #F3C675, #D9684A);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dish .b {
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dish h3 {
+      font-size: 1.15rem;
+    }
+
+    .dish small {
+      color: var(--mute);
+      font-size: .8rem;
+    }
+
+    /* ==========================================================
+       7. VIDEOS
+       ========================================================== */
+    .vids {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .vid {
+      position: relative;
+      aspect-ratio: 9 / 13;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #3a2218;
+      border: 0;
+      padding: 0;
+      color: #fff;
+      text-align: left;
+      font: inherit;
+    }
+
+    .vid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 50%, rgba(20, 10, 5, .75));
+    }
+
+    .vid .p {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 44%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .94);
+      display: grid;
+      place-items: center;
+      transition: .2s;
+    }
+
+    .vid:hover .p {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    .vid .p::before {
+      content: "";
+      border-left: 15px solid var(--chili);
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      margin-left: 4px;
+    }
+
+    .vid span {
+      position: absolute;
+      z-index: 2;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      font-size: .9rem;
+      font-weight: 500;
+    }
+
+    .vid em {
+      position: absolute;
+      z-index: 2;
+      right: 12px;
+      top: 12px;
+      font-style: normal;
+      font-size: .75rem;
+      background: rgba(0, 0, 0, .55);
+      padding: 2px 9px;
+      border-radius: 8px;
+    }
+
+    /* Video popup */
+    #modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 10, 5, .78);
+      display: none;
+      place-items: center;
+      z-index: 60;
+      padding: 20px;
+    }
+
+    #modal.on {
+      display: grid;
+    }
+
+    .mbox {
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      width: min(820px, 100%);
+    }
+
+    .mbox .f {
+      aspect-ratio: 16 / 9;
+    }
+
+    .mbox iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .mbox .bar2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: var(--dark);
+      color: #fff;
+      font-size: .92rem;
+    }
+
+    .mbox button {
+      background: var(--saffron);
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* ==========================================================
+       8. GALLERY
+       ========================================================== */
+    .gal {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 190px;
+      gap: 14px;
+    }
+
+    .gal div {
+      border-radius: 18px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #F3C675, #D9684A);
+    }
+
+    .gal .w {
+      grid-column: span 2;
+    }
+
+    .gal .t {
+      grid-row: span 2;
+    }
+
+    /* ==========================================================
+       9. REVIEWS
+       ========================================================== */
+    .sum {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .score {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .score .n {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--chili);
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .score p {
+      color: var(--mute);
+      font-size: .9rem;
+    }
+
+    .bars {
+      margin-top: 18px;
+      text-align: left;
+      font-size: .8rem;
+      color: var(--mute);
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 5px 0;
+    }
+
+    .bar i {
+      flex: 1;
+      height: 7px;
+      background: var(--soft);
+      border-radius: 9px;
+      overflow: hidden;
+    }
+
+    .bar i b {
+      display: block;
+      height: 100%;
+      background: var(--saffron);
+    }
+
+    .ai {
+      color: var(--mute);
+      margin-bottom: 20px;
+    }
+
+    .q {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--chili);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 14px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.12rem;
+      line-height: 1.45;
+    }
+
+    /* ==========================================================
+       10. LOCATION
+       ========================================================== */
+    .loc {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 30px;
+    }
+
+    .map {
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      min-height: 320px;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+      background:
+        linear-gradient(rgba(255, 251, 244, .55), rgba(255, 251, 244, .55)),
+        repeating-linear-gradient(45deg, #F1E4C8, #F1E4C8 14px, #F8EFDB 14px, #F8EFDB 28px);
+    }
+
+    .map div {
+      background: #fff;
+      border-radius: 16px;
+      padding: 18px 24px;
+      box-shadow: 0 12px 28px rgba(43, 29, 22, .12);
+    }
+
+    .det {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .det .r {
+      display: flex;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .95rem;
+    }
+
+    .det .r:last-child {
+      border: 0;
+    }
+
+    .det .r b {
+      width: 90px;
+      flex: none;
+      color: var(--mute);
+      font-weight: 500;
+    }
+
+    /* ==========================================================
+       11. RESERVATION FORM
+       ========================================================== */
+    .res {
+      background: var(--chili);
+      color: #fff;
+    }
+
+    .res h2 {
+      font-size: 2.3rem;
+      margin-bottom: 6px;
+    }
+
+    .res p {
+      opacity: .9;
+      margin-bottom: 24px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) auto;
+      gap: 12px;
+      background: #fff;
+      color: var(--ink);
+      padding: 20px;
+      border-radius: 20px;
+      align-items: end;
+    }
+
+    form label {
+      font-size: .76rem;
+      color: var(--mute);
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    form input,
+    form select {
+      width: 100%;
+      padding: 11px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      font: inherit;
+      background: var(--bg);
+    }
+
+    /* ==========================================================
+       12. FOOTER
+       ========================================================== */
+    footer {
+      background: var(--dark);
+      color: #CDB899;
+      padding: 40px 0;
+      font-size: .88rem;
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer .logo {
+      color: var(--saffron);
+    }
+
+    /* ==========================================================
+       13. RESPONSIVE AND ACCESSIBILITY
+       ========================================================== */
+    @media (max-width: 900px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero,
+      .sum,
+      .loc {
+        grid-template-columns: 1fr;
+      }
+
+      .collage {
+        height: 380px;
+      }
+
+      .badge {
+        left: 10px;
+      }
+
+      .vids,
+      .strip .wrap,
+      .gal,
+      form {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      .gal .w {
+        grid-column: span 2;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= TOP BAR ================= -->
+  <div class="top">
+    Open today until 12 am &nbsp;·&nbsp; Home delivery until 8 pm &nbsp;·&nbsp; Call 0194 245 2555
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#">Wah Kabab<small>MUGHLAI · SRINAGAR</small></a>
+
+      <nav>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#videos">Kitchen</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#visit">Visit us</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn fill" href="#reserve">Book a table</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <div class="wrap hero">
+      <div>
+        <div class="rate">
+          <b>4.8</b>
+          <span class="stars">★★★★★</span>
+          <span>1,277 Google reviews</span>
+        </div>
+
+        <h1>Signature kebabs and <em>mutton rara</em>, made the Mughlai way.</h1>
+        <p class="lead">Slow-cooked curries, smoky tandoor kebabs and warm hospitality in the heart of Lal Chowk.</p>
+
+        <div class="tags">
+          <span class="tag">Mughlai</span>
+          <span class="tag">All you can eat</span>
+          <span class="tag">Vegetarian options</span>
+          <span class="tag">Halal</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn fill" href="#reserve">Reserve a table</a>
+          <a class="btn gold" href="#">Order online</a>
+          <a class="btn line" href="#menu">See the menu</a>
+        </div>
+      </div>
+
+      <div class="collage">
+        <div class="big">
+          <img src="https://media.istockphoto.com/id/687749576/photo/grilled-beef-shishkabab-skewers.jpg?s=612x612&w=0&k=20&c=slN9M1eIZotEUw1LDcCCentTvQBaaQcpLXhTV1MwYpA=" alt="Grilled kebabs" onerror="this.remove()">
+        </div>
+        <div>
+          <img src="https://sinfullyspicy.com/wp-content/uploads/2026/03/1200-by-1200-images.jpg" alt="Chicken biryani" onerror="this.remove()">
+        </div>
+        <div>
+          <img src="https://media.istockphoto.com/id/2185257273/photo/indian-curry-tikka-masala-chicken-lamb-mutton-rogan-josh-with-rice-and-naan-bread-dark.jpg?s=612x612&w=0&k=20&c=-yHrDXUjpBv0RkD8hP2IQbiW-RNE8L1sQCpv-l09yAA=" alt="Rich curry" onerror="this.remove()">
+        </div>
+        <span class="badge"><b>₹200–1,000</b>per person</span>
+      </div>
+    </div>
+
+    <!-- ================= QUICK INFO STRIP ================= -->
+    <div class="strip">
+      <div class="wrap">
+        <div><b>STATUS</b>Open · Closes 12 am</div>
+        <div><b>DELIVERY</b>Now · Ends 8 pm</div>
+        <div><b>WAIT TIME</b>Usually no wait</div>
+        <div><b>ADDRESS</b>Court Road, Lal Chowk</div>
+      </div>
+    </div>
+
+    <!-- ================= MENU ================= -->
+    <section id="menu">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <h2>Menu highlights</h2>
+            <p>Guest favourites from our kitchen. The complete menu is on Facebook.</p>
+          </div>
+          <a class="btn line" href="https://www.facebook.com/WahKabab/menu">View the full menu</a>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Menu categories"></div>
+        <div class="menu" id="menu-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= VIDEOS ================= -->
+    <section class="alt" id="videos">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <h2>From our kitchen</h2>
+            <p>Watch the tandoor, the grill and the table. Sample videos for now.</p>
+          </div>
+        </div>
+        <div class="vids" id="vids"></div>
+      </div>
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+    <section id="gallery">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <h2>Gallery</h2>
+            <p>A look at the food and the atmosphere.</p>
+          </div>
+        </div>
+
+        <div class="gal">
+          <div class="w">
+            <img src="https://thumbs.dreamstime.com/b/cozy-private-dining-room-rattan-pendants-pampas-decor-set-table-cozy-private-dining-room-rattan-pendants-pampas-437520808.jpg" alt="Dining area" onerror="this.remove()">
+          </div>
+          <div>
+            <img src="https://images.stockcake.com/public/0/d/b/0db0a578-a6ca-4818-b279-ffe4e909b999_large/fresh-baked-bread-stockcake.jpg" alt="Fresh bread" onerror="this.remove()">
+          </div>
+          <div class="t">
+            <img src="https://media.istockphoto.com/id/1396604313/photo/roasted-whole-chicken-legs-with-condiment-directly-above-photo.jpg?s=612x612&w=0&k=20&c=JDs72E-fX5SdcBQREta58T82W8zO_rFiKC7d1WwEEUE=" alt="Tandoori" onerror="this.remove()">
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1finD-uJSjY699FYWwN4eVAJ5fYWzS1efBT4BcKPNmFx5KaClBA6lZVb&s=10" alt="Paneer dish" onerror="this.remove()">
+          </div>
+          <div>
+            <img src="https://image.shutterstock.com/image-photo/layered-sponge-cake-features-vibrant-260nw-2782738201.jpg" alt="Dessert" onerror="this.remove()">
+          </div>
+          <div class="w">
+            <img src="https://thumbs.dreamstime.com/b/mutton-curry-28836468.jpg" alt="Mutton dish" onerror="this.remove()">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REVIEWS ================= -->
+    <section class="alt" id="reviews">
+      <div class="wrap">
+        <div class="head">
+          <div><h2>What guests say</h2></div>
+          <a class="btn line" href="https://www.google.com/search?q=Wah+Kabab+Srinagar+reviews">Rate and review on Google</a>
+        </div>
+
+        <div class="sum">
+          <div class="score">
+            <div class="n">4.8</div>
+            <div class="stars">★★★★★</div>
+            <p>1,277 reviews</p>
+
+            <div class="bars">
+              <div class="bar">5<i><b style="width:90%"></b></i></div>
+              <div class="bar">4<i><b style="width:7%"></b></i></div>
+              <div class="bar">3<i><b style="width:2%"></b></i></div>
+              <div class="bar">2<i><b style="width:1%"></b></i></div>
+              <div class="bar">1<i><b style="width:1%"></b></i></div>
+            </div>
+            <p class="note">Bars are illustrative.</p>
+          </div>
+
+          <div>
+            <p class="ai">
+              Diners love the mutton rara, butter chicken and Lucknowi chicken curry, the wide range of kebabs and vegetarian options, attentive staff, generous portions and good value.
+              <small>(Summarised by AI on Google.)</small>
+            </p>
+
+            <div class="q">“Food was very amazing, service was outstanding, great atmosphere.”</div>
+            <div class="q">“We had dinner 2 days in a row. Not too oily and spicy, perfect as we ordered.”</div>
+
+            <div class="chips">
+              <span class="tag">mutton rara</span>
+              <span class="tag">lucknowi chicken curry</span>
+              <span class="tag">afghani chicken</span>
+              <span class="tag">dal makhani</span>
+              <span class="tag">chicken korma</span>
+              <span class="tag">rogan josh</span>
+              <span class="tag">momos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LOCATION ================= -->
+    <section id="visit">
+      <div class="wrap">
+        <div class="head">
+          <div><h2>Visit us</h2></div>
+        </div>
+
+        <div class="loc">
+          <div class="map">
+            <div>
+              <b>Wah Kabab</b><br>
+              Court Road, Lal Chowk<br>
+              <a class="btn fill" style="margin-top:12px;padding:8px 20px" href="https://maps.google.com/?q=Wah+Kabab+Court+Road+Lal+Chowk+Srinagar">Get directions</a>
+            </div>
+          </div>
+
+          <div class="det">
+            <div class="r"><b>Address</b><span>Court Road, Lal Chowk, Srinagar, Jammu and Kashmir 190001</span></div>
+            <div class="r"><b>Phone</b><a href="tel:01942452555">0194 245 2555</a></div>
+            <div class="r"><b>Hours</b><span class="open">Open · Closes 12 am</span></div>
+            <div class="r"><b>Delivery</b><span>Until 8 pm</span></div>
+            <div class="r"><b>Online</b><a href="https://www.facebook.com/WahKabab" style="color:var(--chili);font-weight:600">facebook.com/WahKabab</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESERVATION ================= -->
+    <section class="res" id="reserve">
+      <div class="wrap">
+        <h2>Reserve a table</h2>
+        <p>Tell us when you’re coming and we’ll keep your table ready. Demo form.</p>
+
+        <form onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Request sent ✓'">
+          <div><label for="d">Date</label><input id="d" type="date" required></div>
+          <div><label for="t">Time</label><input id="t" type="time" required></div>
+          <div>
+            <label for="g">Guests</label>
+            <select id="g">
+              <option>2</option>
+              <option>3–4</option>
+              <option>5–8</option>
+              <option>9+</option>
+            </select>
+          </div>
+          <div><label for="n">Phone</label><input id="n" type="tel" placeholder="Your number" required></div>
+          <button class="btn fill">Book table</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="wrap">
+      <div>
+        <div class="logo">Wah Kabab</div>
+        Authentic Mughlai · Lal Chowk, Srinagar
+      </div>
+      <div>Sample website concept. Images and videos are placeholders.</div>
+    </div>
+  </footer>
+
+  <!-- ================= VIDEO POPUP ================= -->
+  <div id="modal" role="dialog" aria-modal="true" aria-label="Video">
+    <div class="mbox">
+      <div class="f">
+        <iframe id="frame" allow="autoplay; encrypted-media" allowfullscreen title="Video"></iframe>
+      </div>
+      <div class="bar2">
+        <span id="vt"></span>
+        <button id="close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================
+       DATA
+       ========================================================== */
+
+    // Menu image helper. Currently returns one placeholder for every dish.
+    // Replace with a real photo per dish (e.g. a lookup by dish name).
+    const IMG = (keyword, index, width = 500, height = 375) =>
+      `https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ=`;
+
+    // Menu: category -> [dish name, label, image keyword]
+    const MENU = {
+      "Kebabs": [
+        ["Barra Kabab", "Popular", "kebab,lamb"],
+        ["Mutton Seekh Kebab", "", "seekh,kebab"],
+        ["Galouti Kabab", "", "kebab,meat"],
+        ["Chicken Seekh Kabab", "", "chicken,kebab"],
+        ["Chicken Kali Mirch Tikka", "Halal", "chicken,tikka"],
+        ["Haryali Tikka", "", "tikka,green"],
+        ["Tandoori Momos", "", "momos"]
+      ],
+      "Mains": [
+        ["Butter Chicken", "Popular", "butter,chicken"],
+        ["Mutton Rara", "Halal", "mutton,curry"],
+        ["Mutton Nalli Nehari", "", "nihari,stew"],
+        ["Chicken Butter Masala", "", "chicken,curry"]
+      ],
+      "Rice & Breads": [
+        ["Chicken Biryani", "Popular", "biryani"],
+        ["Rumali Roti", "Popular", "roti,bread"],
+        ["Tandoori Butter Roti", "", "naan,bread"]
+      ],
+      "Vegetarian": [
+        ["Paneer Makhani", "", "paneer"],
+        ["Kadhai Paneer", "", "paneer,curry"]
+      ],
+      "Dessert": [
+        ["Zarda", "", "sweet,rice,dessert"]
+      ]
+    };
+
+    // Videos: [YouTube ID, title, duration]
+    const VIDEOS = [
+      ["ZmpTA0MqF4A", "Mutton rara, slow cooked", "0:46"],
+      ["jNQXAC9IVRw", "Fresh from the tandoor", "0:16"],
+      ["9bZkp7q19f0", "Galouti on the grill", "0:36"],
+      ["5qap5aO4i9A", "An evening at Wah Kabab", "0:37"]
+    ];
+
+    /* ==========================================================
+       MENU TABS AND DISH CARDS
+       ========================================================== */
+    const tabs = document.querySelector('.tabs');
+    const grid = document.getElementById('menu-grid');
+    const imageSeed = 40;
+
+    function showCategory(category) {
+      tabs.querySelectorAll('.tab').forEach(tab => {
+        tab.setAttribute('aria-selected', tab.dataset.k === category);
+      });
+
+      grid.innerHTML = MENU[category].map(([name, label, keyword], i) => `
+        <article class="dish">
+          <div class="ph">
+            <img src="${IMG(keyword, imageSeed + i)}" alt="${name}" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="b">
+            <div>
+              <h3>${name}</h3>
+              <small>${category}</small>
+            </div>
+            ${label ? `<span class="pill ${label === 'Popular' ? 'pop' : 'halal'}">${label}</span>` : ''}
+          </div>
+        </article>
+      `).join('');
+    }
+
+    Object.keys(MENU).forEach(category => {
+      const tab = document.createElement('button');
+      tab.className = 'tab';
+      tab.role = 'tab';
+      tab.dataset.k = category;
+      tab.textContent = category;
+      tab.onclick = () => showCategory(category);
+      tabs.appendChild(tab);
+    });
+
+    showCategory('Kebabs');
+
+    /* ==========================================================
+       VIDEO TILES AND POPUP
+       ========================================================== */
+    document.getElementById('vids').innerHTML = VIDEOS.map(([id, title, duration]) => `
+      <button class="vid" data-v="${id}" data-t="${title}">
+        <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="" onerror="this.remove()">
+        <em>${duration}</em>
+        <div class="p"></div>
+        <span>${title}</span>
+      </button>
+    `).join('');
+
+    const modal = document.getElementById('modal');
+    const frame = document.getElementById('frame');
+
+    function closeModal() {
+      modal.classList.remove('on');
+      frame.src = '';
+    }
+
+    document.addEventListener('click', e => {
+      const video = e.target.closest('[data-v]');
+
+      if (video) {
+        frame.src = 'https://www.youtube-nocookie.com/embed/' + video.dataset.v + '?autoplay=1&rel=0';
+        document.getElementById('vt').textContent = video.dataset.t;
+        modal.classList.add('on');
+      }
+
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    document.getElementById('close').onclick = closeModal;
+  </script>
+
+</body>
+
+</html>
