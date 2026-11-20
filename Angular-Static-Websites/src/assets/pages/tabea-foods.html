@@ -41,7 +41,10 @@ nav li a:hover{color:var(--ink)}nav li a:hover::after{width:100%}
 
 /* hero */
 .hero{background:radial-gradient(circle at 80% 20%,var(--mustard-l),transparent 55%),var(--cream);padding:70px 0 90px;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+/* Jar composition on the LEFT, hero copy on the RIGHT */
+.hero .wrap > div:first-child{grid-column:2;grid-row:1}
+.hero .stage{grid-column:1;grid-row:1;width:100%;min-width:0}
 .loc{display:inline-flex;gap:8px;align-items:center;background:var(--olive-l);color:var(--olive);font-weight:700;font-size:.82rem;padding:6px 16px;border-radius:999px;margin-bottom:20px}
 .hero h1{font-size:clamp(2.8rem,6.4vw,5rem);color:var(--olive-d);margin-bottom:8px}
 .hero h1 em{font-style:italic;color:var(--chili)}
@@ -52,6 +55,7 @@ nav li a:hover{color:var(--ink)}nav li a:hover::after{width:100%}
 .tags span::before{content:"✦ ";color:var(--mustard)}
 .stage{position:relative;height:440px}
 .stage .jar{position:absolute;filter:drop-shadow(0 24px 24px rgba(46,29,16,.22));animation:bob 6s ease-in-out infinite}
+.stage img.jar{height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:18px}
 .j1{width:210px;left:6%;top:70px}.j2{width:170px;right:2%;top:10px;animation-delay:-2s}.j3{width:150px;right:14%;bottom:0;animation-delay:-4s}
 .ring{position:absolute;inset:6% 6%;border:2px dashed var(--mustard);border-radius:50%;animation:spin 40s linear infinite;opacity:.6}
 @keyframes bob{50%{transform:translateY(-14px) rotate(2deg)}}
@@ -69,7 +73,7 @@ nav li a:hover{color:var(--ink)}nav li a:hover::after{width:100%}
 .pc:hover{box-shadow:0 26px 44px rgba(50,63,20,.16)}
 .pv{height:190px;display:grid;place-items:center;border-radius:20px;background:var(--sand);margin-bottom:18px;overflow:hidden}
 .pv .jar{height:150px;transition:transform .4s}.pc:hover .jar{transform:scale(1.1) rotate(-4deg)}
-.pv img{width:100%;height:100%;object-fit:cover}
+.pv img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.pc:hover .pv img{transform:scale(1.06)}
 .pc h3{font-size:1.3rem;margin-bottom:6px;color:var(--olive-d)}
 .pc p{color:var(--mute);font-size:.9rem;margin-bottom:16px;min-height:2.9em}
 .pc .btn{padding:10px 22px;font-size:.88rem}
@@ -86,9 +90,9 @@ nav li a:hover{color:var(--ink)}nav li a:hover::after{width:100%}
 .wc p{font-size:.92rem;color:rgba(255,255,255,.75)}
 
 /* videos */
-.vg{display:grid;grid-template-columns:repeat(2,minmax(0,360px));gap:36px;justify-content:center;margin-top:44px}
+.vg{display:grid;grid-template-columns:repeat(3,minmax(0,340px));gap:28px;justify-content:center;margin-top:44px}
 .ph{background:#fff;border:1px solid var(--line);border-radius:28px;padding:14px;box-shadow:0 24px 44px rgba(46,29,16,.1)}
-.ph iframe{width:100%;height:600px;border:0;border-radius:18px;background:var(--sand);display:block}
+.ph iframe{width:100%;height:560px;border:0;border-radius:18px;background:var(--sand);display:block}
 .ph a{display:block;text-align:center;font-weight:700;font-size:.88rem;color:var(--chili);padding:12px 0 4px}
 
 /* gallery */
@@ -126,11 +130,16 @@ footer a:hover{color:var(--mustard)}
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
 .rv.in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
-@media(max-width:900px){
+@media(max-width:960px){
+ .vg{grid-template-columns:repeat(2,minmax(0,340px))}
+}
+@media(max-width:760px){
  .burger{display:block}
  nav ul{position:absolute;top:74px;left:0;right:0;background:var(--cream);flex-direction:column;gap:0;padding:8px 24px 18px;display:none;box-shadow:0 20px 30px rgba(0,0,0,.1)}
  nav ul.open{display:flex}nav li a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
- .hero .wrap{grid-template-columns:1fr}.stage{height:340px}.j1{width:160px}.j2{width:130px}.j3{width:110px}
+ .hero .wrap{grid-template-columns:1fr}
+ .hero .wrap > div:first-child,.hero .stage{grid-column:auto;grid-row:auto}
+ .stage{height:340px}.j1{width:160px}.j2{width:130px}.j3{width:110px}
  .wg{grid-template-columns:1fr 1fr}.sg{grid-template-columns:1fr}.vg{grid-template-columns:minmax(0,360px)}
  .gg{grid-template-columns:1fr 1fr}.gt:nth-child(1){grid-column:span 2}.gt:nth-child(4){grid-column:span 2}.gt:nth-child(1) .jar{height:150px}
  section{padding:68px 0}.ig{padding:32px}
@@ -146,7 +155,7 @@ footer a:hover{color:var(--mustard)}
  <nav aria-label="Main"><ul id="menu">
   <li><a href="#achaar">Our Achaar</a></li><li><a href="#why">Why Tabea</a></li><li><a href="#videos">Videos</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#order">How to Order</a></li>
  </ul></nav>
- <a class="btn mus nav-order" href="#order" data-order="">Order Now</a>
+ <a class="btn mus nav-order" href="https://ig.me/m/tabeafoods" target="_blank" rel="noopener" data-order="Tabea Foods Achaar">Order Now</a>
  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
 </div></header>
 
@@ -168,7 +177,6 @@ footer a:hover{color:var(--mustard)}
  <div class="center"><span class="eyebrow rv">Our Achaar</span><h2 class="h2 rv">Taste the tradition, jar by jar</h2>
  <p class="sub rv">Homemade anchaar with the flavour of old family recipes. Tap Order and send us a message to get yours.</p></div>
  <div class="pg" id="pg"></div>
- <p class="note">Sample product list. Update names, descriptions and photos in the PRODUCTS list at the bottom of this file.</p>
 </div></section>
 
 <section class="why" id="why"><div class="wrap">
@@ -215,7 +223,8 @@ footer a:hover{color:var(--mustard)}
   <ul><li><a href="#achaar">Our Achaar</a></li><li><a href="#why">Why Tabea</a></li><li><a href="#videos">Videos</a></li><li><a href="#gallery">Gallery</a></li><li><a href="https://www.instagram.com/tabeafoods/" target="_blank" rel="noopener">Instagram</a></li></ul>
  </div>
  <div class="copy"><span>© 2026 Tabea Foods. All rights reserved.</span><span>Fresh, flavorful, and full of tradition.</span></div>
-</div><div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px;padding:18px 24px 0;border-top:1px solid rgba(128,128,128,.28);font-size:.8rem;font-family:system-ui,sans-serif"><span>Developed by</span><span style="display:inline-flex;background:#fff;border-radius:10px;padding:5px 14px"><img src="/assets/logo.png" alt="Core Vision Software Development" style="height:44px;width:auto;display:block" onerror="this.parentNode.textContent='Core Vision Software Development'"></span></div>
+</div>
+<div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px;padding:18px 24px 0;border-top:1px solid rgba(128,128,128,.28);font-size:.8rem;font-family:system-ui,sans-serif"><span>Developed by</span><span style="display:inline-flex;background:#fff;border-radius:10px;padding:5px 14px"><img src="/assets/logo.png" alt="Core Vision Software Development" style="height:44px;width:auto;display:block" onerror="this.parentNode.textContent='Core Vision Software Development'"></span></div>
 </footer>
 
 <div id="toast" role="status"></div>
@@ -223,32 +232,72 @@ footer a:hover{color:var(--mustard)}
 <script>
 /* =========================================================
    EDIT THESE
+   Images live in:  src/assets/tabea-food-images
    ========================================================= */
-// Logo: save the logo next to this file as "tabea-logo.jpg". The Instagram link below may expire.
-const LOGO_LOCAL = 'tabea-logo.jpg';
-const LOGO_REMOTE = 'https://instagram.fixj1-2.fna.fbcdn.net/v/t51.82787-19/625831220_17900710671369423_4205930933391356669_n.jpg?_nc_cat=107&_nc_map=urlgen_bucketless&ig_cache_key=GDRtTSXPRMv8mZg-AP1ynmLmd146bmNDAQAB0j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=sojL_Q5EsMsQ7kNvwHlScU7&_nc_oc=AdpfEkTxNTpnBwPqBA6zJIQRMMsXsj6Smx_uBX8jZbHn8BbgNMuAo-hvxclZ5UIGiofmzYRltPCPWpUSJ6f1qd8R&_nc_zt=24&_nc_ht=instagram.fixj1-2.fna&_nc_gid=ga6277eCy8QzMdMUUe7UXQ&_nc_ss=7b6a8&_nc_ct=RQosPBUCFQIAAAA&oh=00_AQQ87RcLNAcrcUQOf88JqZKGNs3i6Dr4vzPGijTHhfa4Hg&oe=6B04A606';
+const IMG_BASE = '/assets/tabea-food-images/';
+const IMG_VERSION = '3';   // change this number if the browser keeps showing an old/missing image
+const LOGO_LOCAL = IMG_BASE + 'tabea-logo.jpg';
+const LOGO_REMOTE = 'https://instagram.fdel1-2.fna.fbcdn.net/v/t51.82787-19/625831220_17900710671369423_4205930933391356669_n.jpg?_nc_cat=107&_nc_map=urlgen_bucketless&ig_cache_key=GDRtTSXPRMv8mZg-AP1ynmLmd146bmNDAQAB0j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=sojL_Q5EsMsQ7kNvwHlScU7&_nc_oc=AdpfEkTxNTpnBwPqBA6zJIQRMMsXsj6Smx_uBX8jZbHn8BbgNMuAo-hvxclZ5UIGiofmzYRltPCPWpUSJ6f1qd8R&_nc_zt=24&_nc_ht=instagram.fdel1-2.fna&_nc_gid=ga6277eCy8QzMdMUUe7UXQ&_nc_ss=7b6a8&_nc_ct=RQosPBUCFQIAAAA&oh=00_AQQ87RcLNAcrcUQOf88JqZKGNs3i6Dr4vzPGijTHhfa4Hg&oe=6B04A606';
 
-// Products: [name, description, jar colour, optional photo path e.g. 'images/mango.jpg']
+// Products: [name, description, jar colour, image file or list of files to try in order]
 const PRODUCTS = [
-  ["Mixed Vegetable Achaar","A colourful medley of vegetables in homemade spices.","#C8641C",""],
-  ["Mango Achaar","Tangy, spicy and sun-warm, the classic favourite.","#D9A21B",""],
-  ["Lemon Achaar","Sharp, salty and full of aroma.","#B9A21E",""],
-  ["Green Chilli Achaar","For everyone who loves a proper kick.","#4E7A2A",""],
-  ["Garlic Achaar","Rich, bold and perfect with any meal.","#A8321F",""],
-  ["Lotus Stem (Nadru) Achaar","A Kashmiri speciality with a crisp bite.","#8A5A2B",""]
+  ["Mixed Vegetable Achaar", "A colourful medley of vegetables in homemade spices.", "#C8641C", "mixed-veg.jpg"],
+  ["Mango Achaar", "Tangy, spicy and sun-warm, the classic favourite.", "#D9A21B", "mango.jpg"],
+  ["Lemon Achaar", "Sharp, salty and full of aroma.", "#B9A21E", "lemon.jpg"],
+  ["Green Chilli Achaar", "For everyone who loves a proper kick.", "#4E7A2A", "green-chilli.jpg"],
+  ["Garlic Achaar", "Rich, bold and perfect with any meal.", "#A8321F", ["garlic.jpg", "chilli-garlic.jpg", "green-chilli.jpg", "mixed-veg.jpg"]],
+  ["Lotus Stem (Nadru) Achaar", "A Kashmiri speciality with a crisp bite.", "#8A5A2B", "nadru.jpg"]
 ];
 
-// Reels (Instagram reel IDs)
-const REELS = ["DP_a6YrASX5","DUCuZpUATC1"];
+// Reels (Instagram reel shortcodes)
+const REELS = ["DU8UZOaASWx", "DW-onq5gb8-", "DUCuZpUATC1"];
 
-// Gallery photo paths, e.g. ['images/g1.jpg','images/g2.jpg', ...]. Up to 6. Empty slots show a jar.
-const GALLERY = [];
+// Gallery: up to 6 slots. Each slot lists files to try in order.
+const GALLERY = [
+  ["gallery-assortment.jpg", "mixed-veg.jpg"],
+  ["nadru.jpg"],
+  ["green-chilli.jpg"],
+  ["lemon.jpg"],
+  ["gallery-1.jpg"],
+  ["gallery-2.jpg"]
+];
 
 /* ========================================================= */
 const JAR = c => `<svg viewBox="0 0 120 150" class="jar" role="img" aria-label="Achaar jar"><rect x="30" y="8" width="60" height="18" rx="5" fill="#46561F"/><rect x="24" y="24" width="72" height="14" rx="6" fill="#6B7F2F"/><path d="M26 38h68a10 10 0 0 1 10 10v78a14 14 0 0 1-14 14H30a14 14 0 0 1-14-14V48a10 10 0 0 1 10-10z" fill="${c}"/><rect x="30" y="62" width="60" height="50" rx="8" fill="#FFF8EA"/><text x="60" y="84" text-anchor="middle" font-family="Fraunces,serif" font-size="12" font-weight="800" fill="#323F14">TABEA</text><text x="60" y="100" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="7" fill="#7B6853" letter-spacing="1.5">ACHAAR</text><path d="M34 48c0 20 0 50 4 70" stroke="#fff" stroke-opacity=".3" stroke-width="4" stroke-linecap="round" fill="none"/></svg>`;
 
+const resolveImg = f => !f ? '' : (f.startsWith('http') ? f : (f.startsWith('/') ? f : IMG_BASE + f) + '?v=' + IMG_VERSION);
+
+const showJarFallback = (container, colour) => {
+  const template = document.createElement('template');
+  template.innerHTML = JAR(colour);
+  container.replaceChildren(template.content.cloneNode(true));
+};
+
+// Tries each file (and other extensions) in order and calls done(img) for the first one that loads.
+// Failed addresses are printed in the browser console (F12) to make problems easy to spot.
+function loadFirst(files, done, fail) {
+  const list = [].concat(files).filter(Boolean);
+  const names = [];
+  const add = n => { if (!names.includes(n)) names.push(n); };
+  list.forEach((f, idx) => {
+    add(f);
+    if (idx === 0) {                       // try other extensions for the main file only
+      const base = f.replace(/\.[^.]+$/, '');
+      ['jpg', 'jpeg', 'png', 'webp'].forEach(e => add(base + '.' + e));
+    }
+  });
+  const next = i => {
+    if (i >= names.length) { console.error('No image could be loaded for:', list.join(', ')); if (fail) fail(); return; }
+    const img = new Image();
+    img.onload = () => done(img);
+    img.onerror = () => { console.warn('Image not found:', resolveImg(names[i])); next(i + 1); };
+    img.src = resolveImg(names[i]);
+  };
+  next(0);
+}
+
 // Logo with fallbacks: local file, then Instagram link, then the letter T
-['lg','lg2'].forEach(id => {
+['lg', 'lg2'].forEach(id => {
   const box = document.getElementById(id), img = new Image();
   img.alt = 'Tabea Foods logo';
   let tried = 0;
@@ -257,54 +306,94 @@ const JAR = c => `<svg viewBox="0 0 120 150" class="jar" role="img" aria-label="
   img.src = LOGO_LOCAL;
 });
 
-document.getElementById('stage').insertAdjacentHTML('beforeend',
-  ['#C8641C','#D9A21B','#A8321F'].map((c,i)=>JAR(c).replace('class="jar"','class="jar j'+(i+1)+'"')).join(''));
+// Hero jars (photos, with jar illustrations until each photo loads)
+const stage = document.getElementById('stage');
+[
+  ['mixed-veg.jpg', 'j1', '#C8641C'],
+  ['mango.jpg', 'j2', '#D9A21B'],
+  ['lemon.jpg', 'j3', '#A8321F']
+].forEach(([file, position, colour]) => {
+  const template = document.createElement('template');
+  template.innerHTML = JAR(colour).replace('class="jar"', `class="jar ${position}"`);
+  const placeholder = template.content.firstElementChild;
+  stage.appendChild(placeholder);
+  loadFirst(file, img => {
+    img.alt = 'Tabea Foods achaar';
+    img.className = `jar ${position}`;
+    placeholder.replaceWith(img);
+  });
+});
 
 document.getElementById('mq').innerHTML = Array(2).fill(
-  ['Homemade','Fresh','Flavorful','Full of tradition','Downtown Srinagar','Authentic anchaar'].map(t=>`<span>${t}</span>`).join('')
+  ['Homemade', 'Fresh', 'Flavorful', 'Full of tradition', 'Downtown Srinagar', 'Authentic anchaar'].map(t => `<span>${t}</span>`).join('')
 ).join('');
 
-document.getElementById('pg').innerHTML = PRODUCTS.map(([n,d,c,img],i)=>`
- <article class="pc rv" style="transition-delay:${(i%3)*.08}s">
-  <div class="pv">${img?`<img src="${img}" alt="${n}" loading="lazy">`:JAR(c)}</div>
-  <h3>${n}</h3><p>${d}</p>
-  <button class="btn fill" data-order="${n}">Order</button>
- </article>`).join('');
+// Products
+const productGrid = document.getElementById('pg');
+PRODUCTS.forEach(([name, description, colour, imageFile], i) => {
+  const article = document.createElement('article');
+  article.className = 'pc rv';
+  article.style.transitionDelay = `${(i % 3) * .08}s`;
+  article.innerHTML = `<div class="pv"></div><h3>${name}</h3><p>${description}</p><button type="button" class="btn fill" data-order="${name}">Order</button>`;
+  const box = article.querySelector('.pv');
+  showJarFallback(box, colour);                        // jar shows until the photo loads
+  loadFirst(imageFile, img => { img.alt = name; box.replaceChildren(img); });
+  productGrid.appendChild(article);
+});
 
-document.getElementById('vg').innerHTML = REELS.map(id=>`
+// Reels
+document.getElementById('vg').innerHTML = REELS.map(id => `
  <div class="ph rv"><iframe src="https://www.instagram.com/reel/${id}/embed" loading="lazy" allowfullscreen title="Tabea Foods reel"></iframe>
- <a href="https://www.instagram.com/reel/${id}/" target="_blank" rel="noopener">Watch on Instagram →</a></div>`).join('');
+ <a href="https://www.instagram.com/tabeafoods/reel/${id}/" target="_blank" rel="noopener">Watch on Instagram →</a></div>`).join('');
 
-document.getElementById('gg').innerHTML = Array.from({length:6},(_,i)=>`
- <div class="gt rv">${GALLERY[i]?`<img src="${GALLERY[i]}" alt="Tabea Foods achaar" loading="lazy">`:JAR(['#C8641C','#D9A21B','#4E7A2A','#A8321F','#8A5A2B','#B9A21E'][i])}</div>`).join('');
+// Gallery
+const gallery = document.getElementById('gg');
+const galleryColours = ['#C8641C', '#D9A21B', '#4E7A2A', '#A8321F', '#8A5A2B', '#B9A21E'];
+GALLERY.slice(0, 6).forEach((files, i) => {
+  const tile = document.createElement('div');
+  tile.className = 'gt rv';
+  showJarFallback(tile, galleryColours[i]);
+  loadFirst(files, img => { img.alt = 'Tabea Foods achaar'; tile.replaceChildren(img); });
+  gallery.appendChild(tile);
+});
 
 // Tilt effect on product cards
-document.getElementById('pg').addEventListener('mousemove',e=>{
-  const c=e.target.closest('.pc'); if(!c) return; const r=c.getBoundingClientRect();
-  c.style.transform=`perspective(700px) rotateY(${((e.clientX-r.left)/r.width-.5)*8}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*8}deg) translateY(-6px)`;
+productGrid.addEventListener('mousemove', e => {
+  const c = e.target.closest('.pc'); if (!c) return;
+  const r = c.getBoundingClientRect();
+  c.style.transform = `perspective(700px) rotateY(${((e.clientX - r.left) / r.width - .5) * 8}deg) rotateX(${-((e.clientY - r.top) / r.height - .5) * 8}deg) translateY(-6px)`;
 });
-document.getElementById('pg').addEventListener('mouseout',e=>{const c=e.target.closest('.pc'); if(c) c.style.transform='';});
+productGrid.addEventListener('mouseout', e => {
+  const c = e.target.closest('.pc'); if (c) c.style.transform = '';
+});
 
-// Order: copy message, open Instagram DM
-const toast=document.getElementById('toast');
-function say(t){toast.textContent=t;toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),4200)}
-document.addEventListener('click',e=>{
-  const b=e.target.closest('[data-order]'); if(!b) return;
-  if(b.classList.contains('nav-order')) return;
+// Order: copy message with product name, open Instagram DM
+const toast = document.getElementById('toast');
+function say(t) {
+  toast.textContent = t;
+  toast.classList.add('on');
+  setTimeout(() => toast.classList.remove('on'), 4200);
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-order]'); if (!b) return;
   e.preventDefault();
-  const msg=`Hello Tabea Foods, I would like to order: ${b.dataset.order}`;
-  (navigator.clipboard?navigator.clipboard.writeText(msg):Promise.reject()).then(
-    ()=>say('Message copied. Paste it in our Instagram DM.'),
-    ()=>say('Open our Instagram DM and tell us which achaar you want.'));
-  setTimeout(()=>window.open('https://ig.me/m/tabeafoods','_blank'),900);
+  const item = b.dataset.order || 'Achaar';
+  const msg = `Hello Tabea Foods, I would like to order: ${item}`;
+  (navigator.clipboard ? navigator.clipboard.writeText(msg) : Promise.reject()).then(
+    () => say(`Copied "${item}" order message — paste it in our Instagram DM.`),
+    () => say(`Opening Instagram DM — tell us you want to order: ${item}.`)
+  );
+  setTimeout(() => window.open('https://ig.me/m/tabeafoods', '_blank', 'noopener'), 700);
 });
 
 // Menu + reveal
-const m=document.getElementById('menu'),bg=document.getElementById('burger');
-bg.onclick=()=>bg.setAttribute('aria-expanded',m.classList.toggle('open'));
-m.onclick=e=>{if(e.target.tagName==='A')m.classList.remove('open')};
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const m = document.getElementById('menu'), bg = document.getElementById('burger');
+bg.onclick = () => bg.setAttribute('aria-expanded', m.classList.toggle('open'));
+m.onclick = e => { if (e.target.tagName === 'A') m.classList.remove('open'); };
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
