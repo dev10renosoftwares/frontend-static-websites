@@ -25,6 +25,24 @@ export interface PageEntry {
 
 export const PAGES: PageEntry[] = [
   {
+    slug: 'tabea-foods',
+    file: 'tabea-foods.html',
+    title: 'Tabea Foods – Authentic Homemade Anchaar, Srinagar',
+    name: 'Tabea Foods',
+    description: 'Homemade achaar (pickle) brand with products, reels, gallery and Instagram ordering.',
+    category: 'Food Brand',
+    accent: '#46561F'
+  },
+  {
+  slug: 'valley-care',
+  file: 'valley-care.html',
+  title: 'Valley Care Centre – Chiropractic, Hijama & Alternative Therapy, Srinagar',
+  name: 'Valley Care Centre',
+  description: 'Chiropractic, hijama, acupuncture and massage clinic with Instagram booking.',
+  category: 'Healthcare',
+  accent: '#0E5A63'
+},
+  {
     slug: 'wah-kabab',
     file: 'wah-kabab.html',
     title: 'Wah Kabab – Authentic Mughlai in Lal Chowk, Srinagar',
@@ -50,14 +68,5 @@ export const PAGES: PageEntry[] = [
     description: 'Clinic website with treatments, doctor profile, online consultation and WhatsApp booking.',
     category: 'Healthcare',
     accent: '#C4A04F'
-  },
-  {
-    slug: 'tabea-foods',
-    file: 'tabea-foods.html',
-    title: 'Tabea Foods – Authentic Homemade Anchaar, Srinagar',
-    name: 'Tabea Foods',
-    description: 'Homemade achaar (pickle) brand with products, reels, gallery and Instagram ordering.',
-    category: 'Food Brand',
-    accent: '#46561F'
-  }
+  }  
 ];

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valley Care Centre – Chiropractic, Hijama &amp; Alternative Therapy, Karan Nagar, Srinagar</title>
+<meta name="description" content="Valley Care Centre, Karan Nagar, Srinagar. Drugless, holistic and alternative therapy: chiropractic care, hijama (cupping), acupuncture and dry needling, reflexology, deep tissue massage, sports injury treatment and tattoo removal.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---- Colours: change these to match the logo exactly ---- */
+:root{--bg:#F7FBFA;--soft:#E6F2F1;--card:#fff;--line:#D7E5E4;--ink:#13262A;--mute:#587076;--teal:#0E5A63;--teal-d:#093F46;--teal-l:#CFE8E6;--copper:#C58B4E;--copper-l:#F6E8D6}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden}
+h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.12}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:92px 0;position:relative}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+.eyebrow{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);margin-bottom:10px}
+.h2{font-size:clamp(2rem,4.2vw,3.1rem);margin-bottom:12px;color:var(--teal-d)}
+.sub{color:var(--mute);max-width:36em}
+.center{text-align:center}.center .sub{margin:0 auto}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;border-radius:999px;font-weight:600;font-size:.95rem;border:2px solid var(--teal);cursor:pointer;font-family:inherit;transition:transform .25s,box-shadow .25s,background .25s}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover::after{left:130%}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(9,63,70,.22)}
+.fill{background:var(--teal);color:#fff}.cop{background:var(--copper);border-color:var(--copper);color:#fff}
+.line{background:transparent;color:var(--teal)}.white{background:#fff;border-color:#fff;color:var(--teal-d)}.ghost{background:transparent;border-color:rgba(255,255,255,.6);color:#fff}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(247,251,250,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--teal-d);line-height:1.05}
+.brand small{display:block;font-family:'DM Sans';font-size:.62rem;letter-spacing:.2em;color:var(--mute);margin-top:4px;font-weight:600}
+.lg{width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font:700 .85rem 'DM Sans';overflow:hidden;flex:none;border:2px solid var(--copper)}
+.lg img{width:100%;height:100%;object-fit:cover}
+nav ul{display:flex;gap:24px;list-style:none;padding:0;font-size:.9rem;font-weight:500;color:var(--mute)}
+nav li a{position:relative;padding:4px 0}
+nav li a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--copper);transition:width .3s}
+nav li a:hover{color:var(--ink)}nav li a:hover::after{width:100%}
+.burger{display:none;background:none;border:0;font-size:1.6rem;color:var(--teal-d);cursor:pointer}
+
+/* hero */
+.hero{background:radial-gradient(circle at 85% 15%,var(--teal-l),transparent 55%),radial-gradient(circle at 5% 90%,var(--copper-l),transparent 45%),var(--bg);padding:70px 0 90px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.loc{display:inline-flex;gap:8px;align-items:center;background:var(--teal-l);color:var(--teal-d);font-weight:600;font-size:.82rem;padding:6px 16px;border-radius:999px;margin-bottom:20px}
+.hero h1{font-size:clamp(2.7rem,6vw,4.7rem);color:var(--teal-d);margin-bottom:6px}
+.hero h1 em{font-style:italic;color:var(--copper)}
+.hero p.lead{font-size:1.12rem;color:var(--mute);max-width:31em;margin:16px 0 26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.tags{display:flex;gap:10px;flex-wrap:wrap}
+.tags span{font-size:.82rem;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 16px;color:var(--teal)}
+.tags span::before{content:"✦ ";color:var(--copper)}
+.stage{position:relative;height:480px}
+.ph{position:absolute;border-radius:26px;overflow:hidden;background:linear-gradient(145deg,var(--teal),var(--teal-d));box-shadow:0 30px 60px rgba(9,63,70,.25);display:grid;place-items:center;color:rgba(255,255,255,.7);font:700 1.2rem 'DM Sans'}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.p1{left:0;top:30px;width:62%;height:78%}
+.p2{right:0;top:0;width:44%;height:44%;animation:bob 7s ease-in-out infinite}
+.p3{right:4%;bottom:0;width:46%;height:46%;animation:bob 7s -3s ease-in-out infinite}
+.glass{position:absolute;left:-14px;bottom:46px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:12px 18px;box-shadow:0 18px 36px rgba(9,63,70,.18);font-size:.82rem;color:var(--mute);animation:bob 6s -2s ease-in-out infinite;z-index:2}
+.glass b{display:block;font:400 1.5rem 'DM Serif Display';color:var(--teal)}
+@keyframes bob{50%{transform:translateY(-12px)}}
+
+/* marquee + stats */
+.mq{background:var(--teal);color:var(--teal-l);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:'DM Serif Display',serif;font-size:1.1rem}
+.mq div{display:inline-block;animation:mq 34s linear infinite}
+.mq span{margin:0 24px}.mq span::after{content:"✦";margin-left:48px;color:var(--copper)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.stats{padding:0;margin-top:-1px}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border:1px solid var(--line);border-radius:24px;margin:-36px auto 0;position:relative;z-index:3;box-shadow:0 24px 50px rgba(9,63,70,.1);max-width:1000px}
+.st{padding:26px 16px;text-align:center;border-right:1px solid var(--line)}.st:last-child{border:0}
+.st b{display:block;font:400 2.3rem 'DM Serif Display';color:var(--teal);line-height:1}
+.st span{font-size:.82rem;color:var(--mute)}
+
+/* treatments */
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;margin-top:46px}
+.tc{--x:50%;--y:50%;position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.tc::before{content:"";position:absolute;inset:0;background:radial-gradient(240px circle at var(--x) var(--y),rgba(197,139,78,.18),transparent 70%);opacity:0;transition:opacity .3s}
+.tc:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(9,63,70,.13);border-color:var(--copper)}.tc:hover::before{opacity:1}
+.tc>*{position:relative}
+.ic{width:52px;height:52px;border-radius:16px;background:var(--teal-l);display:grid;place-items:center;font-size:1.5rem;margin-bottom:16px}
+.tc h3{font-size:1.4rem;margin-bottom:6px;color:var(--teal-d)}
+.tc p{color:var(--mute);font-size:.9rem;margin-bottom:16px;min-height:3em}
+.tc button{background:none;border:0;color:var(--copper);font:700 .88rem 'DM Sans';cursor:pointer;padding:0}
+.tc button::after{content:" →"}.tc button:hover{color:var(--teal)}
+.disc{margin-top:28px;font-size:.84rem;color:var(--mute);text-align:center;max-width:56em;margin-inline:auto}
+
+/* why */
+.why{background:var(--teal-d);color:#fff}
+.why .h2{color:#fff}.why .sub{color:rgba(255,255,255,.72)}.why .eyebrow{color:var(--copper)}
+.wg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:46px}
+.wc{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:28px 24px;transition:.3s}
+.wc:hover{background:rgba(255,255,255,.13);transform:translateY(-8px);border-color:var(--copper)}
+.wc .i{font-size:1.8rem;margin-bottom:12px}
+.wc h3{font-size:1.35rem;margin-bottom:6px;color:var(--copper-l)}.wc p{font-size:.92rem;color:rgba(255,255,255,.75)}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,360px));gap:26px;justify-content:center;margin-top:46px}
+.dr{background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px 28px;text-align:center;transition:.3s}
+.dr:hover{transform:translateY(-6px);box-shadow:0 24px 44px rgba(9,63,70,.12)}
+.av{width:96px;height:96px;margin:0 auto 16px;border-radius:50%;background:linear-gradient(145deg,var(--teal),var(--teal-d));color:#fff;display:grid;place-items:center;font:400 2rem 'DM Serif Display';border:4px solid var(--copper-l)}
+.dr h3{font-size:1.6rem;color:var(--teal-d)}.dr .rl{color:var(--copper);font-weight:700;font-size:.85rem;letter-spacing:.06em;margin:4px 0 10px;text-transform:uppercase}
+.dr p{color:var(--mute);font-size:.92rem}
+.cred{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+.cred span{background:var(--copper-l);color:#7A5426;font-weight:600;font-size:.84rem;padding:7px 18px;border-radius:999px}
+
+/* hours */
+.alt{background:var(--soft)}
+.hrs{max-width:720px;margin:40px auto 0;background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 24px 50px rgba(9,63,70,.08)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
+.tab{font:600 .9rem 'DM Sans';border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 22px;cursor:pointer;color:var(--mute)}
+.tab[aria-selected=true]{background:var(--teal);border-color:var(--teal);color:#fff}
+.hr{display:flex;justify-content:space-between;gap:16px;padding:14px 4px;border-bottom:1px solid var(--line);font-size:.98rem}
+.hr:last-of-type{border:0}.hr b{font-weight:600}.hr span{color:var(--teal);font-weight:600}
+.pay{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.pay span{background:var(--teal-l);color:var(--teal-d);font-size:.82rem;font-weight:600;padding:6px 16px;border-radius:999px}
+
+/* videos */
+.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));gap:24px;justify-content:center;margin-top:34px}
+.vc{background:#fff;border:1px solid var(--line);border-radius:26px;padding:12px;box-shadow:0 20px 40px rgba(9,63,70,.1)}
+.vc iframe{width:100%;height:520px;border:0;border-radius:18px;background:var(--soft);display:block}
+.vc a{display:block;text-align:center;font-weight:700;font-size:.86rem;color:var(--copper);padding:12px 0 4px}
+
+/* gallery */
+.gg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.gt{aspect-ratio:4/3;border-radius:24px;overflow:hidden;position:relative;background:linear-gradient(145deg,var(--teal-l),#A9D3D0);display:grid;place-items:center;color:var(--teal);font:400 1.4rem 'DM Serif Display';transition:transform .3s}
+.gt:hover{transform:scale(1.03) rotate(-1deg)}
+.gt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}.gt:hover img{transform:scale(1.07)}
+
+/* visit */
+.vs{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;margin-top:44px}
+.card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:32px}
+.row{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.row:last-of-type{border:0}
+.row .k{width:90px;flex:none;color:var(--mute);font-size:.82rem;padding-top:2px}
+.row b{font-weight:600;display:block}.row a{color:var(--teal);font-weight:600}.row a:hover{color:var(--copper)}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.links a{font-size:.85rem;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:7px 16px;color:var(--teal);transition:.2s}
+.links a:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.map{border-radius:28px;min-height:340px;border:1px solid var(--line);display:grid;place-items:center;text-align:center;padding:24px;background:linear-gradient(rgba(247,251,250,.55),rgba(247,251,250,.55)),repeating-linear-gradient(45deg,#D5E6E5,#D5E6E5 14px,#E3EFEE 14px,#E3EFEE 28px)}
+.map div{background:#fff;border-radius:20px;padding:24px 28px;box-shadow:0 16px 32px rgba(9,63,70,.15);max-width:320px}
+.map b{font:400 1.4rem 'DM Serif Display';color:var(--teal-d);display:block}.map p{color:var(--mute);font-size:.88rem;margin:6px 0 16px}
+
+/* book banner */
+.book{background:linear-gradient(120deg,var(--teal-d),var(--teal));color:#fff;text-align:center;overflow:hidden}
+.book::before{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:rgba(197,139,78,.25)}
+.book .wrap{position:relative}
+.book .h2{color:#fff}.book .sub{color:rgba(255,255,255,.8);margin:0 auto 28px}
+.book .cta{justify-content:center;margin-bottom:0}
+
+/* footer */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:56px 0 26px;font-size:.9rem}
+.fr{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:28px}
+footer .brand{color:#fff}footer .brand small{color:rgba(255,255,255,.5)}
+footer h3{font:700 .78rem 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:12px}
+footer ul{list-style:none;padding:0}footer li{margin-bottom:8px}footer a:hover{color:var(--copper)}
+.copy{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:.8rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.legal{font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:18px;max-width:60em}
+
+.dock{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));gap:8px}
+.dock a,.dock button{flex:1;text-align:center;padding:11px 6px;border-radius:12px;font:700 .86rem 'DM Sans';border:0;cursor:pointer}
+.dock a:nth-child(1){background:var(--soft);color:var(--teal-d)}.dock a:nth-child(2){background:#E2F3E8;color:#1F6B3E}.dock button{background:var(--teal);color:#fff}
+
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);background:var(--teal-d);color:#fff;padding:14px 24px;border-radius:14px;font-weight:600;font-size:.92rem;opacity:0;pointer-events:none;transition:.35s;z-index:99;max-width:90vw;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:960px){
+ .burger{display:block}
+ nav ul{position:absolute;top:76px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:8px 24px 18px;display:none;box-shadow:0 20px 30px rgba(0,0,0,.1)}
+ nav ul.open{display:flex}nav li a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+ .nav .btn{display:none}
+ .hero .wrap,.vs,.fr{grid-template-columns:1fr}.stage{height:400px}
+ .sg{grid-template-columns:1fr 1fr;margin:-30px 16px 0}.st:nth-child(2){border-right:0}.st:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .wg{grid-template-columns:1fr 1fr}.team{grid-template-columns:minmax(0,420px)}
+ .gg{grid-template-columns:1fr 1fr}
+ section{padding:68px 0}.dock{display:flex}body{padding-bottom:70px}
+}
+@media(max-width:520px){.wg,.gg{grid-template-columns:1fr}.glass{left:6px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+ <a class="brand" href="#top"><span class="lg" id="lg">VCC</span><span>Valley Care Centre<small>KARAN NAGAR · SRINAGAR</small></span></a>
+ <nav aria-label="Main"><ul id="menu">
+  <li><a href="#treatments">Treatments</a></li><li><a href="#why">Why Us</a></li><li><a href="#team">Practitioners</a></li><li><a href="#hours">Hours</a></li><li><a href="#videos">Videos</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#visit">Visit</a></li>
+ </ul></nav>
+ <a class="btn cop" href="https://ig.me/m/valleycarecentre_" target="_blank" rel="noopener" data-book="an appointment">Book Appointment</a>
+ <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+ <div>
+  <span class="loc">📍 Karan Nagar, Srinagar</span>
+  <h1>Heal naturally.<br><em>Move freely.</em></h1>
+  <p class="lead">A drugless, holistic and alternative therapy clinic offering chiropractic care, hijama, acupuncture, reflexology, deep tissue massage and more.</p>
+  <div class="cta"><a class="btn fill" href="https://ig.me/m/valleycarecentre_" target="_blank" rel="noopener" data-book="an appointment">Book Appointment</a><a class="btn line" href="tel:+919797043123">Call 97970 43123</a></div>
+  <div class="tags"><span>Chiropractic</span><span>Hijama</span><span>Acupuncture</span><span>Sports Injury</span></div>
+ </div>
+ <div class="stage" id="stage" aria-hidden="true">
+  <div class="ph p1" data-img="gallery-1.png">VCC</div>
+  <div class="ph p2" data-img="gallery-2.png"></div>
+  <div class="ph p3" data-img="gallery-3.png"></div>
+  <div class="glass"><b>4.7 ★</b>79 Google reviews</div>
+ </div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<div class="stats"><div class="wrap"><div class="sg">
+ <div class="st"><b>4.7</b><span>Google rating · 79 reviews</span></div>
+ <div class="st"><b>4.6</b><span>Justdial rating · 12 ratings</span></div>
+ <div class="st"><b>10.5K</b><span>Instagram followers</span></div>
+ <div class="st"><b>10+</b><span>Therapies offered</span></div>
+</div></div></div>
+
+<section id="treatments"><div class="wrap">
+ <div class="center"><span class="eyebrow rv">Our Treatments</span><h2 class="h2 rv">Drugless care for the whole body</h2>
+ <p class="sub rv">Every visit begins with understanding your concern. Tap Book on any treatment to message us on Instagram.</p></div>
+ <div class="tg" id="tg"></div>
+ <p class="disc">Information on this website is for general awareness and does not replace an individual assessment or emergency care. Suitability of any treatment depends on consultation. Appointments are recommended.</p>
+</div></section>
+
+<section class="why" id="why"><div class="wrap">
+ <div class="center"><span class="eyebrow">Why Valley Care Centre</span><h2 class="h2">Many therapies. One clinic.</h2>
+ <p class="sub">Chiropractic, hijama, acupuncture and massage under one roof in Karan Nagar.</p></div>
+ <div class="wg">
+  <div class="wc rv"><div class="i">🌿</div><h3>Drugless approach</h3><p>Holistic and alternative therapies that work without medication.</p></div>
+  <div class="wc rv d1"><div class="i">🧰</div><h3>Wide range of care</h3><p>From spine alignment to cupping, needling, reflexology and massage.</p></div>
+  <div class="wc rv d2"><div class="i">⭐</div><h3>Well reviewed</h3><p>Rated 4.7 on Google across 79 reviews and 4.6 on Justdial.</p></div>
+  <div class="wc rv d3"><div class="i">📅</div><h3>Easy appointments</h3><p>Book by call, WhatsApp or Instagram. Google Pay is accepted.</p></div>
+ </div>
+</div></section>
+
+<section id="team"><div class="wrap">
+ <div class="center"><span class="eyebrow">Our Practitioners</span><h2 class="h2">Meet the team</h2>
+ <p class="sub">Patients regularly mention our practitioners by name in their reviews.</p></div>
+ <div class="team">
+  <div class="dr rv"><div class="av">B</div><h3>Dr. Basit</h3><div class="rl">Chiropractic</div><p>Chiropractic bone and spine alignment, and sports and shoulder injury care.</p></div>
+  <div class="dr rv d1"><div class="av">M</div><h3>Dr. Mukhtar Bhat</h3><div class="rl">Hijama</div><p>Hijama (cupping therapy), including fire cupping.</p></div>
+ </div>
+ <div class="cred rv"><span>Chiropractic Doctor (DC)</span><span>All India Council of Alternative Medical Science &amp; Research · Class of 2020</span></div>
+</div></section>
+
+<section class="alt" id="hours"><div class="wrap">
+ <div class="center"><span class="eyebrow">Hours &amp; Booking</span><h2 class="h2">When to visit</h2></div>
+ <div class="hrs rv">
+  <div class="tabs" role="tablist" aria-label="Clinic hours"></div>
+  <div id="hr"></div>
+  <div class="pay"><span>Appointments recommended</span><span>Google Pay accepted</span><span>Restrooms on site</span></div>
+ </div>
+</div></section>
+
+<section id="videos"><div class="wrap">
+ <div class="center"><span class="eyebrow">Watch</span><h2 class="h2">See us in action</h2>
+ <p class="sub">Reels from our Instagram, @valleycarecentre_.</p></div>
+ <div class="tabs" id="vtabs" role="tablist" aria-label="Video categories" style="margin-top:28px"></div>
+ <div class="vg" id="vg"></div>
+</div></section>
+
+<section class="alt" id="gallery"><div class="wrap">
+ <div class="center"><span class="eyebrow">Gallery</span><h2 class="h2">Inside the clinic</h2></div>
+ <div class="gg" id="gg"></div>
+</div></section>
+
+<section id="visit"><div class="wrap">
+ <div class="center"><span class="eyebrow">Find Us</span><h2 class="h2">Visit Valley Care Centre</h2>
+ <p class="sub">Ist Floor, 2nd Room, Al Noor Complex, Gole Market, Karan Nagar, Srinagar.</p></div>
+ <div class="vs">
+  <div class="card rv">
+   <div class="row"><span class="k">Address</span><div><b>Ist Floor, 2nd Room, Al Noor Complex Gole Market</b>Gole Marjet Masjid, Gole Market Karanagar, Karan Nagar, Srinagar-190010, Jammu and Kashmir</div></div>
+   <div class="row"><span class="k">Phone</span><div><a href="tel:+919797043123">+91 97970 43123</a><br><a href="tel:+919796043123">+91 97960 43123</a></div></div>
+   <div class="row"><span class="k">Email</span><a href="mailto:valleycarecentre@gmail.com">valleycarecentre@gmail.com</a></div>
+   <div class="row"><span class="k">Follow</span><div class="links" style="margin:0"><a href="https://www.instagram.com/valleycarecentre_/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/valleycarecentre/" target="_blank" rel="noopener">Facebook</a><a href="https://www.justdial.com/Srinagar/Valley-Care-Centre-Gole-Marjet-Masjid-Karan-Nagar/9999PX194-X194-230607165950-Z5J9_BZDET" target="_blank" rel="noopener">Justdial</a></div></div>
+  </div>
+  <div class="map rv d1"><div><b>Valley Care Centre</b><p>Al Noor Complex, Gole Market,<br>Karan Nagar, Srinagar 190010</p><a class="btn fill" style="padding:10px 24px" href="https://maps.google.com/?q=Valley+Care+Centre+Al+Noor+Complex+Gole+Market+Karan+Nagar+Srinagar" target="_blank" rel="noopener">Get Directions</a></div></div>
+ </div>
+</div></section>
+
+<section class="book"><div class="wrap">
+ <span class="eyebrow">Book Now</span>
+ <h2 class="h2">Ready to feel better?</h2>
+ <p class="sub">Message us on Instagram, WhatsApp or call to book your appointment.</p>
+ <div class="cta">
+  <a class="btn cop" href="https://ig.me/m/valleycarecentre_" target="_blank" rel="noopener" data-book="an appointment">Book on Instagram</a>
+  <a class="btn white" href="https://wa.me/919797043123?text=Hello%20Valley%20Care%20Centre%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn ghost" href="tel:+919797043123">Call Now</a>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <div class="fr">
+  <div><div class="brand"><span class="lg" id="lg2">VCC</span><span>Valley Care Centre<small>KARAN NAGAR · SRINAGAR</small></span></div>
+   <p style="margin-top:14px">Drugless, holistic and alternative therapy.<br>Ist Floor, 2nd Room, Al Noor Complex Gole Market, Karan Nagar, Srinagar-190010</p></div>
+  <div><h3>Explore</h3><ul><li><a href="#treatments">Treatments</a></li><li><a href="#team">Practitioners</a></li><li><a href="#hours">Hours</a></li><li><a href="#videos">Videos</a></li><li><a href="#visit">Visit Us</a></li></ul></div>
+  <div><h3>Contact</h3><ul><li><a href="tel:+919797043123">+91 97970 43123</a></li><li><a href="tel:+919796043123">+91 97960 43123</a></li><li><a href="mailto:valleycarecentre@gmail.com">valleycarecentre@gmail.com</a></li><li><a href="https://www.instagram.com/valleycarecentre_/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+ </div>
+ <p class="legal">Website information is for general awareness and does not replace an individual assessment, diagnosis, emergency care or specialist treatment. Suitability of any therapy depends on consultation.</p>
+ <div class="copy"><span>© 2026 Valley Care Centre. All rights reserved.</span><span>Drugless · Holistic · Alternative Therapy</span></div>
+ <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px;padding:18px 24px 0;border-top:1px solid rgba(128,128,128,.28);font-size:.8rem;font-family:system-ui,sans-serif"><span>Developed by</span><span style="display:inline-flex;background:#fff;border-radius:10px;padding:5px 14px"><img src="/assets/logo.png" alt="Core Vision Software Development" style="height:44px;width:auto;display:block" onerror="this.parentNode.textContent='Core Vision Software Development'"></span></div>
+</div></footer>
+
+<div class="dock"><a href="tel:+919797043123">Call</a><a href="https://wa.me/919797043123?text=Hello%20Valley%20Care%20Centre%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">WhatsApp</a><button type="button" data-book="an appointment">Book</button></div>
+<div id="toast" role="status"></div>
+
+<script>
+/* =========================================================
+   EDIT THESE
+   Images live in:  src/assets/valley-care
+   ========================================================= */
+const IMG_BASE = '/assets/valley-care/';
+const IMG_VERSION = '1';   // change if the browser keeps showing an old image
+const LOGO_LOCAL = IMG_BASE + 'logo.jpg';
+const LOGO_REMOTE = 'https://instagram.fixj1-1.fna.fbcdn.net/v/t51.82787-19/649239295_18087264362335238_4400614249858545302_n.jpg?_nc_cat=101&_nc_map=urlgen_bucketless&ig_cache_key=GP_asiYGjEZnRUJAAJY2V0RYHxI9bmNDAQAB0j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDI0LkMzIn0%3D&_nc_ohc=HePTD-mwyn0Q7kNvwHPA6gj&_nc_oc=AdpAr-XYjPt1BZ1P9tl1phJJyI6vVecfmTYw8hv4iBVV5WWtUdDZWgACIZoqkiBNP6jhn29Wh4hcDAGHHry76WQb&_nc_zt=24&_nc_ht=instagram.fixj1-1.fna&_nc_gid=BB8Ncn18-jquQrKFxRt9OQ&_nc_ss=7b6a8&_nc_ct=RQosPBUCFQIAAAA&oh=00_AQQ3Klyf5Rs_V_GI3J9DNZ7uDrHs46MJtWuz-A5mJb4iSw&oe=6B05F9F5';
+const IG_DM = 'https://ig.me/m/valleycarecentre_';
+const IG_PAGE = 'https://www.instagram.com/valleycarecentre_/';
+
+// Treatments: [icon, name, description, booking keyword]
+const TREATMENTS = [
+  ["🦴", "Chiropractic Care", "Hands-on bone and spine alignment for back, neck and joint concerns."],
+  ["🫧", "Hijama (Cupping Therapy)", "Traditional wet cupping, performed by our hijama practitioner."],
+  ["🔥", "Fire Cupping / Fire Therapy", "Traditional fire cupping and fire therapy sessions."],
+  ["📌", "Acupuncture / Dry Needling", "Fine-needle techniques for muscle tension and pain points."],
+  ["👐", "Acupressure", "Pressure-point therapy using skilled hand technique."],
+  ["🦶", "Reflexology", "Foot and hand pressure-point therapy for relaxation."],
+  ["💆", "Deep Tissue Massage", "Firm, focused massage for tight and tired muscles."],
+  ["🏃", "Sports Injury Treatment", "Care for sports injuries and shoulder injuries."],
+  ["🎯", "Navel Displacement", "Assessment and care for navel displacement concerns."],
+  ["✨", "Tattoo Removal", "Tattoo removal treatment. Ask us about your case."]
+];
+
+// Hours
+const HOURS = {
+  "Chiropractic": [["Monday – Saturday", "9:00 AM – 6:30 PM"], ["Sunday", "9:00 AM – 2:00 PM"]],
+  "Hijama": [["Monday – Wednesday", "9:30 AM – 6:30 PM"], ["Thursday – Saturday", "9:00 AM – 6:30 PM"], ["Sunday", "9:30 AM – 1:30 PM"]]
+};
+
+// Reels (Instagram reel shortcodes), grouped by tab
+const VIDEOS = {
+  "Treatments": ["Df7V-IpTxCm", "Df2IJhezenN", "Dfw8F7nzve0", "DfmzMGATluu"],
+  "Patient Reviews": ["Dd9MdczT7kg"],
+  "Offers": ["Dd6l9OezVls"],
+  "Find Us": ["DY4uulSTNR-"]
+};
+
+// "Inside the clinic" photos: inside1, inside2, inside3 (.png, .jpg, .jpeg or .webp are all found automatically).
+// If one is missing, the matching gallery photo is shown instead.
+const GALLERY = [["inside1.png", "gallery-1.jpg"], ["inside2.png", "gallery-2.png"], ["inside3.jpg", "gallery-3.jpg"]];
+
+/* ========================================================= */
+const resolveImg = f => !f ? '' : (f.startsWith('http') ? f : (f.startsWith('/') ? f : IMG_BASE + f) + '?v=' + IMG_VERSION);
+
+// Tries each file in order and calls done(img) for the first one that loads. Failures are logged in the console (F12).
+function loadFirst(files, done, fail) {
+  const list = [].concat(files).filter(Boolean), names = [];
+  const add = n => { if (!names.includes(n)) names.push(n); };
+  list.forEach((f, idx) => {
+    add(f);
+    if (idx === 0) { const base = f.replace(/\.[^.]+$/, ''); ['png', 'jpg', 'jpeg', 'webp'].forEach(e => add(base + '.' + e)); }
+  });
+  const next = i => {
+    if (i >= names.length) { console.error('No image could be loaded for:', list.join(', ')); if (fail) fail(); return; }
+    const img = new Image();
+    img.onload = () => done(img);
+    img.onerror = () => { console.warn('Image not found:', resolveImg(names[i])); next(i + 1); };
+    img.src = resolveImg(names[i]);
+  };
+  next(0);
+}
+
+// Logo: local file, then Instagram link, then "VCC"
+['lg', 'lg2'].forEach(id => {
+  const box = document.getElementById(id), img = new Image();
+  img.alt = 'Valley Care Centre logo';
+  let tried = 0;
+  img.onerror = () => { if (tried++ === 0) img.src = LOGO_REMOTE; else img.remove(); };
+  img.onload = () => { box.textContent = ''; box.appendChild(img); };
+  img.src = LOGO_LOCAL + '?v=' + IMG_VERSION;
+});
+
+// Hero photos
+document.querySelectorAll('#stage [data-img]').forEach(box => {
+  loadFirst(box.dataset.img, img => { img.alt = 'Valley Care Centre'; box.textContent = ''; box.appendChild(img); });
+});
+
+// Marquee
+document.getElementById('mq').innerHTML = Array(2).fill(
+  ['Chiropractic Care', 'Hijama', 'Acupuncture', 'Dry Needling', 'Reflexology', 'Deep Tissue Massage', 'Sports Injury', 'Tattoo Removal'].map(t => `<span>${t}</span>`).join('')
+).join('');
+
+// Treatments
+const tg = document.getElementById('tg');
+tg.innerHTML = TREATMENTS.map(([ic, n, d], i) => `
+ <article class="tc rv" style="transition-delay:${(i % 3) * .08}s"><div class="ic">${ic}</div><h3>${n}</h3><p>${d}</p>
+ <button type="button" data-book="${n}">Book</button></article>`).join('');
+tg.addEventListener('mousemove', e => {
+  const c = e.target.closest('.tc'); if (!c) return;
+  const r = c.getBoundingClientRect();
+  c.style.setProperty('--x', e.clientX - r.left + 'px'); c.style.setProperty('--y', e.clientY - r.top + 'px');
+});
+
+// Hours tabs
+const hTabs = document.querySelector('#hours .tabs'), hBox = document.getElementById('hr');
+function showHours(k) {
+  hTabs.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', b.dataset.k === k));
+  hBox.innerHTML = HOURS[k].map(([d, t]) => `<div class="hr"><b>${d}</b><span>${t}</span></div>`).join('');
+}
+Object.keys(HOURS).forEach(k => {
+  const b = document.createElement('button'); b.className = 'tab'; b.type = 'button'; b.role = 'tab';
+  b.dataset.k = k; b.textContent = k === 'Hijama' ? 'Hijama Hours' : 'Chiropractic Hours'; b.onclick = () => showHours(k); hTabs.appendChild(b);
+});
+showHours('Chiropractic');
+
+// Video tabs (iframes are created only for the chosen tab)
+const vTabs = document.getElementById('vtabs'), vg = document.getElementById('vg');
+function showVideos(k) {
+  vTabs.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', b.dataset.k === k));
+  vg.innerHTML = VIDEOS[k].map(id => `<div class="vc"><iframe src="https://www.instagram.com/reel/${id}/embed" loading="lazy" allowfullscreen title="Valley Care Centre reel"></iframe>
+   <a href="${IG_PAGE}reel/${id}/" target="_blank" rel="noopener">Watch on Instagram →</a></div>`).join('');
+}
+Object.keys(VIDEOS).forEach(k => {
+  const b = document.createElement('button'); b.className = 'tab'; b.type = 'button'; b.role = 'tab';
+  b.dataset.k = k; b.textContent = k; b.onclick = () => showVideos(k); vTabs.appendChild(b);
+});
+showVideos('Treatments');
+
+// Gallery
+const gg = document.getElementById('gg');
+GALLERY.forEach(files => {
+  const tile = document.createElement('div'); tile.className = 'gt rv'; tile.textContent = 'Valley Care Centre';
+  loadFirst(files, img => { img.alt = 'Valley Care Centre clinic'; tile.textContent = ''; tile.appendChild(img); });
+  gg.appendChild(tile);
+});
+
+// Booking: copy a message, then open the clinic's Instagram DM (same flow as Tabea Foods)
+const toast = document.getElementById('toast');
+function say(t) { toast.textContent = t; toast.classList.add('on'); setTimeout(() => toast.classList.remove('on'), 4600); }
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-book]'); if (!b) return;
+  e.preventDefault();
+  const what = b.dataset.book || 'an appointment';
+  const msg = what === 'an appointment'
+    ? 'Hello Valley Care Centre, I would like to book an appointment.'
+    : `Hello Valley Care Centre, I would like to book an appointment for: ${what}`;
+  (navigator.clipboard ? navigator.clipboard.writeText(msg) : Promise.reject()).then(
+    () => say('Message copied. Paste it in our Instagram DM to book.'),
+    () => say(`Opening Instagram DM. Tell us you would like to book: ${what}.`)
+  );
+  setTimeout(() => window.open(IG_DM, '_blank', 'noopener'), 800);
+});
+
+// Menu + reveal
+const m = document.getElementById('menu'), bg = document.getElementById('burger');
+bg.onclick = () => bg.setAttribute('aria-expanded', m.classList.toggle('open'));
+m.onclick = e => { if (e.target.tagName === 'A') m.classList.remove('open'); };
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
