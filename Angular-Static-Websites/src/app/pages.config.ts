@@ -77,5 +77,14 @@ export const PAGES: PageEntry[] = [
     description: 'Clinic website with treatments, doctor profile, online consultation and WhatsApp booking.',
     category: 'Healthcare',
     accent: '#C4A04F'
-  }  
+  },
+  {
+  slug: 'developer',
+  file: 'developer.html',
+  title: 'Zahid Farooq Dar – Backend Developer, Core Vision Software Development',
+  name: 'Developer',
+  description: 'Developer profile and contact details.',
+  category: 'Profile',
+  accent: '#4FD1C5'
+}
 ];
