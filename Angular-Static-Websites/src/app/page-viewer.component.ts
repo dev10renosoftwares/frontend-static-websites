@@ -28,7 +28,7 @@ export class PageViewerComponent {
 
   title: string = this.route.snapshot.data['title'];
   url: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-    'assets/pages/' + this.route.snapshot.data['file']
+    '/assets/pages/' + this.route.snapshot.data['file']
   );
 
   constructor() {

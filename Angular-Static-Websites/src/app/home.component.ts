@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { PAGES, PageEntry } from './pages.config';
+import { AuthService } from './auth.service';
 
 interface Card extends PageEntry {
   preview: SafeResourceUrl;
@@ -27,6 +28,7 @@ interface Card extends PageEntry {
           <input type="search" placeholder="Search pages" aria-label="Search pages"
                  (input)="query.set($any($event.target).value)">
         </label>
+        <button class="lockbtn" type="button" (click)="lock()">🔒 Lock</button>
       </header>
 
       <main class="content">
@@ -100,6 +102,9 @@ interface Card extends PageEntry {
     .search input { border: 0; background: transparent; font: inherit; outline: none; width: 100%; }
     .search:focus-within { border-color: #B3321F; }
 
+    .lockbtn { background: #2A1810; color: #fff; border: 0; border-radius: 999px; padding: 9px 18px; font: 600 .85rem 'Inter', sans-serif; cursor: pointer; }
+    .lockbtn:hover { background: #B3321F; }
+
     /* Content */
     .content { max-width: 1180px; margin: 0 auto; padding: 32px; }
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 36px; }
@@ -143,12 +148,13 @@ interface Card extends PageEntry {
 export class HomeComponent {
   private router = inject(Router);
   private sanitizer = inject(DomSanitizer);
+  private auth = inject(AuthService);
 
   query = signal('');
 
   cards: Card[] = PAGES.map(page => ({
     ...page,
-    preview: this.sanitizer.bypassSecurityTrustResourceUrl('assets/pages/' + page.file)
+    preview: this.sanitizer.bypassSecurityTrustResourceUrl('/assets/pages/' + page.file)
   }));
 
   categoryCount = new Set(PAGES.map(p => p.category)).size;
@@ -159,6 +165,11 @@ export class HomeComponent {
       ? this.cards.filter(c => (c.name + ' ' + c.category + ' ' + c.description + ' ' + c.slug).toLowerCase().includes(q))
       : this.cards;
   });
+
+  lock(): void {
+    this.auth.logout();
+    this.router.navigate(['/login']);
+  }
 
   open(card: Card): void {
     this.router.navigate(['/', card.slug]);
