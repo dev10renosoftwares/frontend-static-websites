@@ -42,6 +42,15 @@ export const PAGES: PageEntry[] = [
   category: 'Healthcare',
   accent: '#0E5A63'
 },
+{
+  slug: 'scholars-library',
+  file: 'scholars-library.html',
+  title: 'The Scholar’s Library – 24-Hour Study Space & Reading Room, Bijbehara',
+  name: "The Scholar's Library",
+  description: '24x7 study space and reading room with 80+ cabins, WiFi, lockers, canteen and printing.',
+  category: 'Education',
+  accent: '#2A2F7A'
+},
   {
     slug: 'wah-kabab',
     file: 'wah-kabab.html',
