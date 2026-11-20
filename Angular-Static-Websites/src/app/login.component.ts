@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren, inject, 
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from './auth.service';
+import { BRAND } from './branding.config';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,7 @@ import { AuthService } from './auth.service';
       <span class="blob b1"></span><span class="blob b2"></span>
 
       <section class="card" aria-labelledby="t">
-        <div class="lock" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><circle cx="12" cy="15.5" r="1.2"/>
-          </svg>
-        </div>
+        <img class="brand" [src]="brand.logo" [alt]="brand.fullName">
 
         <h1 id="t">Dashboard Locked</h1>
         <p class="sub">Enter your 8-digit password to continue.</p>
@@ -35,7 +32,7 @@ import { AuthService } from './auth.service';
         <button class="eye" type="button" (click)="show.set(!show())">{{ show() ? 'Hide digits' : 'Show digits' }}</button>
       </section>
 
-      <p class="foot">Private area. Authorised access only.</p>
+      <p class="foot">Developed by <span class="chip"><img [src]="brand.logo" [alt]="brand.fullName"></span></p>
     </div>
   `,
   styles: [`
@@ -69,7 +66,10 @@ import { AuthService } from './auth.service';
     .unlock:hover { background: #8F2616; transform: translateY(-2px); box-shadow: 0 14px 26px rgba(179,50,31,.3); }
     .eye { margin-top: 14px; background: none; border: 0; color: #7A6657; font: 500 .85rem 'Inter', sans-serif; cursor: pointer; }
     .eye:hover { color: #2A1810; }
-    .foot { position: relative; margin: 0; color: rgba(255,255,255,.5); font-size: .82rem; }
+    .brand { display: block; height: 96px; width: auto; margin: 0 auto 18px; }
+    .chip { display: inline-flex; vertical-align: middle; background: #fff; border-radius: 10px; padding: 5px 12px; margin-left: 8px; }
+    .chip img { height: 38px; width: auto; display: block; }
+    .foot { position: relative; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; margin: 0; color: rgba(255,255,255,.5); font-size: .82rem; }
 
     @media (max-width: 480px) {
       .card { padding: 36px 20px 28px; }
@@ -80,6 +80,7 @@ import { AuthService } from './auth.service';
   `]
 })
 export class LoginComponent implements AfterViewInit {
+  brand = BRAND;
   private auth = inject(AuthService);
   private router = inject(Router);
 

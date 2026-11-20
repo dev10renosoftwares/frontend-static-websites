@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { PAGES, PageEntry } from './pages.config';
 import { AuthService } from './auth.service';
+import { BRAND } from './branding.config';
 
 interface Card extends PageEntry {
   preview: SafeResourceUrl;
@@ -17,10 +18,10 @@ interface Card extends PageEntry {
       <!-- Top bar -->
       <header class="bar">
         <div class="brand">
-          <span class="logo">◆</span>
+          <img class="mark" [src]="brand.icon" alt="Core Vision">
           <div>
             <strong>Site Dashboard</strong>
-            <small>All your web pages in one place</small>
+            <small>{{ brand.fullName }}</small>
           </div>
         </div>
         <label class="search">
@@ -85,6 +86,11 @@ interface Card extends PageEntry {
           }
         </section>
       </main>
+
+      <footer class="dev">
+        <span>Developed by</span>
+        <img [src]="brand.logo" [alt]="brand.fullName">
+      </footer>
     </div>
   `,
   styles: [`
@@ -102,6 +108,9 @@ interface Card extends PageEntry {
     .search input { border: 0; background: transparent; font: inherit; outline: none; width: 100%; }
     .search:focus-within { border-color: #B3321F; }
 
+    .mark { width: 46px; height: 28px; object-fit: contain; }
+    .dev { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 28px 16px 36px; color: #7C726A; font-size: .82rem; }
+    .dev img { height: 46px; width: auto; }
     .lockbtn { background: #2A1810; color: #fff; border: 0; border-radius: 999px; padding: 9px 18px; font: 600 .85rem 'Inter', sans-serif; cursor: pointer; }
     .lockbtn:hover { background: #B3321F; }
 
@@ -148,6 +157,7 @@ interface Card extends PageEntry {
 export class HomeComponent {
   private router = inject(Router);
   private sanitizer = inject(DomSanitizer);
+  brand = BRAND;
   private auth = inject(AuthService);
 
   query = signal('');

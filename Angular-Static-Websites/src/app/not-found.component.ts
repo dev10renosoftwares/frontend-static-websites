@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { PAGES, PageEntry } from './pages.config';
+import { BRAND } from './branding.config';
 
 /** Lowercase and strip everything except letters and digits ("Tabea-Foods" -> "tabeafoods"). */
 const normalise = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -31,6 +32,8 @@ function distance(a: string, b: string): number {
       <span class="blob b1"></span><span class="blob b2"></span>
 
       <main class="card">
+        <img class="brand" [src]="brand.logo" [alt]="brand.fullName">
+
         <div class="code" aria-hidden="true">
           <span>4</span>
           <svg class="compass" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
@@ -63,6 +66,12 @@ function distance(a: string, b: string): number {
           <a class="btn dark" routerLink="/">Go to dashboard</a>
         </div>
 
+        <dl class="info">
+          <div><dt>Status</dt><dd>404 · Page not found</dd></div>
+          <div><dt>Requested address</dt><dd>{{ path }}</dd></div>
+          <div><dt>Support</dt><dd>{{ brand.fullName }}@if (brand.email) { · <a [href]="'mailto:' + brand.email">{{ brand.email }}</a> }@if (brand.phone) { · {{ brand.phone }} }</dd></div>
+        </dl>
+
         <ul class="tips">
           <li><b>Check the spelling</b> of the web address, including hyphens.</li>
           <li><b>Use the original link</b> you were given, instead of typing it.</li>
@@ -70,7 +79,7 @@ function distance(a: string, b: string): number {
         </ul>
       </main>
 
-      <p class="foot">Error 404 · Page not found</p>
+      <p class="foot">Developed by <span class="chip"><img [src]="brand.logo" [alt]="brand.fullName"></span></p>
     </div>
   `,
   styles: [`
@@ -114,19 +123,30 @@ function distance(a: string, b: string): number {
             font-size: .9rem; color: #7A6657; }
     .tips li::before { content: '✦'; color: #E9A82B; margin-right: 10px; }
     .tips b { color: #2A1810; font-weight: 600; }
-    .foot { position: relative; margin: 0; font-size: .8rem; color: #9A8A78; }
+    .brand { display: block; height: 92px; width: auto; margin: 0 auto 6px; }
+    .info { margin: 0 0 24px; padding: 6px 18px; text-align: left; background: #FAF7F0; border: 1px solid #EFE1C8; border-radius: 16px; font-size: .88rem; }
+    .info div { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid #EFE1C8; }
+    .info div:last-child { border: 0; }
+    .info dt { width: 130px; flex: none; color: #9A8A78; }
+    .info dd { margin: 0; color: #2A1810; word-break: break-word; }
+    .info a { color: #14689A; }
+    .chip { display: inline-flex; vertical-align: middle; background: #fff; border: 1px solid #EFE1C8; border-radius: 10px; padding: 5px 12px; margin-left: 8px; }
+    .chip img { height: 36px; width: auto; display: block; }
+    .foot { position: relative; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; margin: 0; font-size: .8rem; color: #9A8A78; }
 
     @media (max-width: 520px) {
       .card { padding: 36px 22px 28px; }
       .code { font-size: 4.6rem; }
       .compass { width: 3.8rem; height: 3.8rem; }
       h1 { font-size: 1.6rem; }
+      .info div { flex-direction: column; gap: 2px; }
       .did { flex-direction: column; align-items: stretch; text-align: center; }
     }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
   `]
 })
 export class NotFoundComponent {
+  brand = BRAND;
   private location = inject(Location);
 
   path = decodeURIComponent(window.location.pathname) || '/';
