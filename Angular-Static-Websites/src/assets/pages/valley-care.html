@@ -672,7 +672,23 @@
       display: grid;
       place-items: center;
       font: 400 2rem 'DM Serif Display';
-      border: 4px solid var(--copper-l)
+      border: 4px solid var(--copper-l);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), box-shadow .35s;
+      position: relative
+    }
+
+    .av img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .av:hover {
+      transform: scale(1.12);
+      box-shadow: 0 12px 28px rgba(9, 63, 70, .22)
     }
 
     .dr h3 {
@@ -709,6 +725,91 @@
       font-size: .84rem;
       padding: 7px 18px;
       border-radius: 999px
+    }
+
+    /* Practitioner image lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(9, 63, 70, .78);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+      cursor: zoom-out
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: min(520px, 92vw);
+      max-height: 85vh;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, .45);
+      transform: scale(.82);
+      transition: transform .4s cubic-bezier(.34, 1.4, .64, 1);
+      cursor: default;
+      background: var(--teal-d)
+    }
+
+    .lightbox.open .lightbox-inner {
+      transform: scale(1)
+    }
+
+    .lightbox-inner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 85vh;
+      object-fit: contain;
+      vertical-align: middle
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(255, 255, 255, .92);
+      color: var(--teal-d);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .2);
+      transition: transform .2s, background .2s
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.08);
+      background: #fff
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 14px 20px;
+      background: linear-gradient(transparent, rgba(9, 63, 70, .85));
+      color: #fff;
+      font-weight: 600;
+      font-size: .95rem;
+      text-align: center
     }
 
     /* hours */
@@ -1370,13 +1471,13 @@
         </div>
         <div class="team">
           <div class="dr rv">
-            <div class="av">B</div>
+            <div class="av" data-photo="basit" data-name="Dr. Basit" title="View photo">B</div>
             <h3>Dr. Basit</h3>
             <div class="rl">Chiropractic</div>
             <p>Chiropractic bone and spine alignment, and sports and shoulder injury care.</p>
           </div>
           <div class="dr rv d1">
-            <div class="av">M</div>
+            <div class="av" data-photo="mukhtar-bhat" data-name="Dr. Mukhtar Bhat" title="View photo">M</div>
             <h3>Dr. Mukhtar Bhat</h3>
             <div class="rl">Hijama</div>
             <p>Hijama (cupping therapy), including fire cupping.</p>
@@ -1528,6 +1629,15 @@
       target="_blank" rel="noopener">WhatsApp</a><button type="button" data-book="an appointment">Book</button></div>
   <div id="toast" role="status"></div>
 
+  <!-- Practitioner photo lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Practitioner photo">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+      <img id="lightboxImg" src="" alt="">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
   <script>
     /* =========================================================
        EDIT THESE
@@ -1536,7 +1646,7 @@
     const IMG_BASE = '/assets/valley-care/';
     const IMG_VERSION = '1';   // change if the browser keeps showing an old image
     const LOGO_LOCAL = IMG_BASE + 'logo.jpg';
-    const LOGO_REMOTE = 'https://instagram.fixj1-1.fna.fbcdn.net/v/t51.82787-19/649239295_18087264362335238_4400614249858545302_n.jpg?_nc_cat=101&_nc_map=urlgen_bucketless&ig_cache_key=GP_asiYGjEZnRUJAAJY2V0RYHxI9bmNDAQAB0j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDI0LkMzIn0%3D&_nc_ohc=HePTD-mwyn0Q7kNvwHPA6gj&_nc_oc=AdpAr-XYjPt1BZ1P9tl1phJJyI6vVecfmTYw8hv4iBVV5WWtUdDZWgACIZoqkiBNP6jhn29Wh4hcDAGHHry76WQb&_nc_zt=24&_nc_ht=instagram.fixj1-1.fna&_nc_gid=BB8Ncn18-jquQrKFxRt9OQ&_nc_ss=7b6a8&_nc_ct=RQosPBUCFQIAAAA&oh=00_AQQ3Klyf5Rs_V_GI3J9DNZ7uDrHs46MJtWuz-A5mJb4iSw&oe=6B05F9F5';
+    const LOGO_REMOTE = 'https://instagram.fsj1-1.fna.fbcdn.net/v/t51.82787-19/649239295_18087264362335238_4400614249858545302_n.jpg?_nc_cat=101&_nc_map=urlgen_bucketless&ig_cache_key=GP_asiYGjEZnRUJAAJY2V0RYHxI9bmNDAQAB0j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDI0LkMzIn0%3D&_nc_ohc=HePTD-mwyn0Q7kNvwHPA6gj&_nc_oc=AdpAr-XYjPt1BZ1P9tl1phJJyI6vVecfmTYw8hv4iBVV5WWtUdDZWgACIZoqkiBNP6jhn29Wh4hcDAGHHry76WQb&_nc_zt=24&_nc_ht=instagram.fsj1-1.fna&_nc_gid=BB8Ncn18-jquQrKFxRt9OQ&_nc_ss=7b6a8&_nc_ct=RQosPBUCFQIAAAA&oh=00_AQQ3Klyf5Rs_V_GI3J9DNZ7uDrHs46MJtWuz-A5mJb4iSw&oe=6B05F9F5';
     const IG_DM = 'https://ig.me/m/valleycarecentre_';
     const IG_PAGE = 'https://www.instagram.com/valleycarecentre_/';
 
@@ -1655,6 +1765,45 @@
       const tile = document.createElement('div'); tile.className = 'gt rv'; tile.textContent = 'Valley Care Centre';
       loadFirst(files, img => { img.alt = 'Valley Care Centre clinic'; tile.textContent = ''; tile.appendChild(img); });
       gg.appendChild(tile);
+    });
+
+    // Practitioner photos + lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function openLightbox(src, name) {
+      lightboxImg.src = src;
+      lightboxImg.alt = name;
+      lightboxCaption.textContent = name;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    document.querySelectorAll('.av[data-photo]').forEach(box => {
+      const file = box.dataset.photo;
+      const name = box.dataset.name || '';
+      loadFirst([file], img => {
+        img.alt = name;
+        box.textContent = '';
+        box.appendChild(img);
+        // store the full-res src for the lightbox
+        box.dataset.fullsrc = img.src;
+      });
+      box.addEventListener('click', () => {
+        const src = box.dataset.fullsrc || (box.querySelector('img') && box.querySelector('img').src);
+        if (src) openLightbox(src, name);
+      });
     });
 
     // Booking: copy a message, then open the clinic's Instagram DM (same flow as Tabea Foods)
