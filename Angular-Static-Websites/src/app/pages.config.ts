@@ -34,23 +34,23 @@ export const PAGES: PageEntry[] = [
     accent: '#46561F'
   },
   {
-  slug: 'valley-care',
-  file: 'valley-care.html',
-  title: 'Valley Care Centre – Chiropractic, Hijama & Alternative Therapy, Srinagar',
-  name: 'Valley Care Centre',
-  description: 'Chiropractic, hijama, acupuncture and massage clinic with Instagram booking.',
-  category: 'Healthcare',
-  accent: '#0E5A63'
-},
-{
-  slug: 'scholars-library',
-  file: 'scholars-library.html',
-  title: 'The Scholar’s Library – 24-Hour Study Space & Reading Room, Bijbehara',
-  name: "The Scholar's Library",
-  description: '24x7 study space and reading room with 80+ cabins, WiFi, lockers, canteen and printing.',
-  category: 'Education',
-  accent: '#2A2F7A'
-},
+    slug: 'valley-care',
+    file: 'valley-care.html',
+    title: 'Valley Care Centre – Chiropractic, Hijama & Alternative Therapy, Srinagar',
+    name: 'Valley Care Centre',
+    description: 'Chiropractic, hijama, acupuncture and massage clinic with Instagram booking.',
+    category: 'Healthcare',
+    accent: '#0E5A63'
+  },
+  {
+    slug: 'scholars-library',
+    file: 'scholars-library.html',
+    title: 'The Scholar’s Library – 24-Hour Study Space & Reading Room, Bijbehara',
+    name: "The Scholar's Library",
+    description: '24x7 study space and reading room with 80+ cabins, WiFi, lockers, canteen and printing.',
+    category: 'Education',
+    accent: '#2A2F7A'
+  },
   {
     slug: 'wah-kabab',
     file: 'wah-kabab.html',
@@ -79,12 +79,21 @@ export const PAGES: PageEntry[] = [
     accent: '#C4A04F'
   },
   {
-  slug: 'developer',
-  file: 'developer.html',
-  title: 'Zahid Farooq Dar – Backend Developer, Core Vision Software Development',
-  name: 'Developer',
-  description: 'Developer profile and contact details.',
-  category: 'Profile',
-  accent: '#4FD1C5'
-}
+    slug: 'developer',
+    file: 'developer.html',
+    title: 'Zahid Farooq Dar – Backend Developer, Core Vision Software Development',
+    name: 'Developer',
+    description: 'Developer profile and contact details.',
+    category: 'Profile',
+    accent: '#4FD1C5'
+  },
+  {
+    slug: 'moneesa',
+    file: 'moneesa.html',
+    title: 'Moneesa Ashraf – .NET Developer',
+    name: 'Moneesa Ashraf',
+    description: 'Developer portfolio: skills, experience and contact details.',
+    category: 'Portfolio',
+    accent: '#5B3FD6'
+  }
 ];

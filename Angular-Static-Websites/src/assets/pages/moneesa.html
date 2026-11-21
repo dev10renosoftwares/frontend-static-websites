@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moneesa Ashraf – .NET Developer | 3+ Years Experience</title>
+  <meta name="description"
+    content="Moneesa Ashraf, .NET developer with 3+ years of experience in C#, ASP.NET MVC, .NET Core, Web API and access control systems (HID, PDK).">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:ital,wght@1,400;1,500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fff;
+      --ink: #15112B;
+      --mute: #635F7E;
+      --line: #E9E4F5;
+      --soft: #F7F4FF;
+      --ac: #9B82FF;
+      --ac-l: #EEE8FF;
+      --ac-d: #5B3FD6;
+      --dark: #15112B
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: 0;
+      background: none;
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--ac-d);
+      outline-offset: 3px
+    }
+
+    .serif {
+      font-family: 'Newsreader', Georgia, serif;
+      font-style: italic;
+      font-weight: 400
+    }
+
+    .wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 28px
+    }
+
+    section {
+      padding: 96px 0
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 14px
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ac-d)
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -.035em;
+      line-height: 1.05
+    }
+
+    h2 .serif {
+      font-size: 1.14em;
+      letter-spacing: -.01em
+    }
+
+    .sub {
+      color: var(--mute);
+      max-width: 36em;
+      margin-top: 12px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .92rem;
+      transition: transform .25s, box-shadow .25s, background .25s
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(21, 17, 43, .2)
+    }
+
+    .b-dark {
+      background: var(--dark);
+      color: #fff
+    }
+
+    .b-ac {
+      background: var(--ac);
+      color: var(--ink)
+    }
+
+    .b-line {
+      border: 1.5px solid var(--ink)
+    }
+
+    .b-white {
+      background: #fff;
+      color: var(--ink)
+    }
+
+    /* top bar */
+    .top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30
+    }
+
+    .top .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+      gap: 16px
+    }
+
+    .mark {
+      font: italic 1.8rem 'Newsreader', serif
+    }
+
+    .links {
+      display: flex;
+      gap: 26px;
+      font-size: .9rem;
+      font-weight: 500;
+      color: #3C3659
+    }
+
+    .links a {
+      position: relative;
+      padding: 4px 0
+    }
+
+    .links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background: var(--ac-d);
+      transition: width .3s
+    }
+
+    .links a:hover::after {
+      width: 100%
+    }
+
+    .tr {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .tr .btn {
+      padding: 10px 20px;
+      font-size: .85rem
+    }
+
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--line);
+      place-items: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .06)
+    }
+
+    .menu-btn span,
+    .menu-btn span::before,
+    .menu-btn span::after {
+      display: block;
+      width: 16px;
+      height: 1.8px;
+      background: var(--ink);
+      border-radius: 2px;
+      position: relative
+    }
+
+    .menu-btn span::before,
+    .menu-btn span::after {
+      content: "";
+      position: absolute;
+      left: 0
+    }
+
+    .menu-btn span::before {
+      top: -5px
+    }
+
+    .menu-btn span::after {
+      top: 5px
+    }
+
+    #ov {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: var(--dark);
+      color: #fff;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8vw
+    }
+
+    #ov.on {
+      display: flex;
+      animation: fade .35s ease
+    }
+
+    #ov a {
+      font: italic clamp(2.4rem, 7vw, 4.6rem)/1.15 'Newsreader', serif;
+      transition: color .2s, padding .2s
+    }
+
+    #ov a:hover {
+      color: var(--ac);
+      padding-left: 14px
+    }
+
+    #ov .x {
+      position: absolute;
+      top: 22px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-size: 1.3rem
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    /* hero */
+    .hero {
+      position: relative;
+      min-height: 800px;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(180deg, #fff 0%, #F6F1FF 14%, #D9C8FF 46%, #EFE6FF 66%, #fff 92%)
+    }
+
+    .hero .badge {
+      position: absolute;
+      top: 112px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      gap: 8px;
+      font-size: .78rem;
+      white-space: nowrap
+    }
+
+    .hero .badge b {
+      font-weight: 600
+    }
+
+    .hero h1 {
+      position: absolute;
+      top: 150px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      text-align: center;
+      line-height: 1;
+      padding: 0 16px
+    }
+
+    .hero h1 .l1 {
+      display: block;
+      font-size: clamp(2.8rem, 7vw, 5.6rem);
+      font-weight: 600;
+      letter-spacing: -.045em
+    }
+
+    .hero h1 .l2 {
+      display: block;
+      font-size: clamp(3.4rem, 8.6vw, 7rem);
+      margin-top: -2px;
+      color: var(--ac-d)
+    }
+
+    .portrait {
+      position: absolute;
+      left: 50%;
+      bottom: 78px;
+      transform: translateX(-50%);
+      z-index: 2;
+      width: 340px;
+      height: 470px;
+      -webkit-mask-image: linear-gradient(#000 76%, transparent 100%);
+      mask-image: linear-gradient(#000 76%, transparent 100%)
+    }
+
+    .arch {
+      width: 100%;
+      height: 100%;
+      border-radius: 170px 170px 0 0;
+      overflow: hidden;
+      background: linear-gradient(160deg, #C7B5FF, #8A6BE8);
+      display: grid;
+      place-items: center;
+      font: italic 5rem 'Newsreader', serif;
+      color: #fff;
+      border: 6px solid rgba(255, 255, 255, .75);
+      border-bottom: 0
+    }
+
+    .arch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top
+    }
+
+    .avail {
+      position: absolute;
+      left: 5%;
+      top: 56%;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      border-radius: 999px;
+      padding: 10px 20px 10px 12px;
+      font-size: .82rem;
+      font-weight: 500;
+      box-shadow: 0 10px 24px rgba(60, 40, 140, .12)
+    }
+
+    .avail i {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--ac-l);
+      display: grid;
+      place-items: center
+    }
+
+    .avail i::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ac-d);
+      animation: pulse 2s infinite
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(91, 63, 214, .5)
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(91, 63, 214, 0)
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(91, 63, 214, 0)
+      }
+    }
+
+    .intro {
+      position: absolute;
+      right: 5%;
+      top: 56%;
+      z-index: 3;
+      width: 260px;
+      font-size: .92rem;
+      color: #2D2748;
+      line-height: 1.5
+    }
+
+    .trust {
+      position: absolute;
+      left: 5%;
+      bottom: 118px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .72rem;
+      color: var(--mute);
+      max-width: 240px;
+      line-height: 1.35
+    }
+
+    .trust .av {
+      display: flex
+    }
+
+    .trust .av span {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--dark);
+      color: #fff;
+      border: 2px solid #fff;
+      display: grid;
+      place-items: center;
+      font-size: .6rem;
+      font-weight: 700;
+      margin-left: -9px
+    }
+
+    .trust .av span:first-child {
+      margin-left: 0
+    }
+
+    .trust .av span:nth-child(2) {
+      background: var(--ac-d)
+    }
+
+    .trust .av span:nth-child(3) {
+      background: #8A6BE8
+    }
+
+    .get {
+      position: absolute;
+      right: 5%;
+      bottom: 112px;
+      z-index: 3
+    }
+
+    .logos {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 70px;
+      overflow: hidden;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      white-space: nowrap
+    }
+
+    .logos div {
+      display: inline-flex;
+      animation: mq 38s linear infinite
+    }
+
+    .logos span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 28px;
+      color: #9A94B8;
+      font-weight: 600;
+      font-size: .98rem
+    }
+
+    .logos span::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-radius: 5px;
+      background: #BDB5DC
+    }
+
+    @keyframes mq {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 70px 0 0
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px 24px;
+      background: #fff;
+      transition: .3s
+    }
+
+    .stat:hover {
+      transform: translateY(-6px);
+      background: var(--ac-l);
+      border-color: var(--ac)
+    }
+
+    .stat b {
+      display: block;
+      font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+      font-weight: 600;
+      letter-spacing: -.03em;
+      line-height: 1.1
+    }
+
+    .stat span {
+      color: var(--mute);
+      font-size: .9rem
+    }
+
+    /* skills */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 26px 0 22px
+    }
+
+    .tab {
+      padding: 9px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: .86rem;
+      font-weight: 500;
+      color: var(--mute);
+      transition: .2s;
+      background: #fff
+    }
+
+    .tab:hover {
+      border-color: var(--ink);
+      color: var(--ink)
+    }
+
+    .tab.on {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: #fff
+    }
+
+    .sk {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px
+    }
+
+    .sc {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px 20px;
+      background: #fff;
+      animation: pop .4s ease backwards;
+      transition: .25s
+    }
+
+    .sc:hover {
+      transform: translateY(-4px);
+      background: var(--ac-l);
+      border-color: var(--ac)
+    }
+
+    .sc small {
+      display: block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ac-d);
+      margin-bottom: 4px
+    }
+
+    .sc b {
+      font-weight: 600
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(.97)
+      }
+    }
+
+    /* carousels */
+    .ch {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 34px
+    }
+
+    .ctl {
+      display: flex;
+      gap: 8px
+    }
+
+    .cb {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid var(--ink);
+      font-size: 1.1rem;
+      transition: .2s
+    }
+
+    .cb:hover {
+      background: var(--ink);
+      color: #fff;
+      transform: scale(1.06)
+    }
+
+    .car {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding-bottom: 6px
+    }
+
+    .car::-webkit-scrollbar {
+      display: none
+    }
+
+    .sl {
+      flex: 0 0 calc(50% - 10px);
+      min-width: 300px;
+      scroll-snap-align: start;
+      border-radius: 32px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 26px;
+      min-height: 360px;
+      transition: transform .3s
+    }
+
+    .sl:hover {
+      transform: translateY(-6px)
+    }
+
+    .sl.dk {
+      background: linear-gradient(160deg, #1F1842, #15112B);
+      color: #fff
+    }
+
+    .sl.lt {
+      background: var(--soft);
+      border: 1px solid var(--line)
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: .74rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--ac);
+      color: var(--ink);
+      margin-bottom: 16px
+    }
+
+    .org {
+      display: block;
+      font-size: .88rem;
+      font-weight: 600;
+      opacity: .7;
+      margin-bottom: 8px
+    }
+
+    .sl h3 {
+      font-size: 1.85rem;
+      font-weight: 600;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      margin-bottom: 10px
+    }
+
+    .sl h3 .serif {
+      font-size: 1.1em
+    }
+
+    .sl p {
+      font-size: .95rem;
+      opacity: .8;
+      max-width: 32em
+    }
+
+    .sl ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-top: 4px
+    }
+
+    .sl li {
+      font-size: .92rem;
+      opacity: .85;
+      padding-left: 22px;
+      position: relative
+    }
+
+    .sl li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--ac);
+      font-size: .8rem;
+      top: 2px
+    }
+
+    .sf {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .mt {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap
+    }
+
+    .mt span {
+      font-size: .74rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+      opacity: .72
+    }
+
+    .sl .btn {
+      padding: 11px 20px;
+      font-size: .86rem
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 22px
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: #D4CDEA;
+      transition: .25s
+    }
+
+    .dot.on {
+      width: 28px;
+      background: var(--dark)
+    }
+
+    /* education */
+    .edu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 34px
+    }
+
+    .ed {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 30px;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      transition: .3s
+    }
+
+    .ed:hover {
+      transform: translateY(-6px);
+      background: var(--ac-l);
+      border-color: var(--ac)
+    }
+
+    .ed small {
+      color: var(--ac-d);
+      font-weight: 600;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    .ed h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -.025em;
+      margin: 4px 0 2px
+    }
+
+    .ed p {
+      color: var(--mute);
+      font-size: .92rem
+    }
+
+    .gpa {
+      flex: none;
+      text-align: center;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 20px;
+      padding: 12px 18px
+    }
+
+    .gpa b {
+      display: block;
+      font-size: 1.6rem;
+      line-height: 1.1
+    }
+
+    .gpa span {
+      font-size: .68rem;
+      letter-spacing: .08em;
+      opacity: .75
+    }
+
+    /* contact */
+    .contact {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 44px 44px 0 0;
+      position: relative;
+      overflow: hidden
+    }
+
+    .contact::before {
+      content: "";
+      position: absolute;
+      right: -140px;
+      top: -140px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(155, 130, 255, .45), transparent 68%)
+    }
+
+    .contact .wrap {
+      position: relative
+    }
+
+    .contact .eyebrow {
+      color: #BDB8D6
+    }
+
+    .contact .eyebrow::before {
+      background: var(--ac)
+    }
+
+    .contact .sub {
+      color: #BDB8D6
+    }
+
+    .cg {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 28px;
+      margin-top: 44px
+    }
+
+    .cards {
+      display: grid;
+      gap: 12px;
+      align-content: start
+    }
+
+    .con {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(255, 255, 255, .05);
+      border-radius: 22px;
+      padding: 16px 18px;
+      transition: .25s
+    }
+
+    .con:hover {
+      background: rgba(155, 130, 255, .16);
+      border-color: var(--ac);
+      transform: translateX(4px)
+    }
+
+    .con a.main {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+      min-width: 0
+    }
+
+    .ci {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: var(--ac);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      flex: none
+    }
+
+    .ci svg {
+      width: 22px;
+      height: 22px
+    }
+
+    .con small {
+      display: block;
+      color: #ADA8C8;
+      font-size: .76rem
+    }
+
+    .con b {
+      font-weight: 600;
+      font-size: .96rem;
+      overflow-wrap: anywhere;
+      display: block
+    }
+
+    .cp {
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .3);
+      font-size: .76rem;
+      font-weight: 600;
+      transition: .2s
+    }
+
+    .cp:hover {
+      background: var(--ac);
+      color: var(--ink);
+      border-color: var(--ac)
+    }
+
+    form {
+      background: #fff;
+      color: var(--ink);
+      border-radius: 32px;
+      padding: 34px
+    }
+
+    form h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -.03em;
+      margin-bottom: 4px
+    }
+
+    form .note {
+      color: var(--mute);
+      font-size: .88rem;
+      margin-bottom: 20px
+    }
+
+    label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      margin: 0 0 6px
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font: inherit;
+      background: var(--soft);
+      transition: .2s;
+      margin-bottom: 14px
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--ink);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(155, 130, 255, .35)
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical
+    }
+
+    form .btn {
+      width: 100%
+    }
+
+    .fine {
+      font-size: .78rem;
+      color: var(--mute);
+      margin-top: 12px;
+      text-align: center
+    }
+
+    footer {
+      background: var(--dark);
+      color: #A9A4C4;
+      text-align: center;
+      padding: 30px 20px 46px;
+      font-size: .84rem;
+      border-top: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    footer .cr {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    footer .chip {
+      display: inline-flex;
+      background: #fff;
+      border-radius: 10px;
+      padding: 5px 14px
+    }
+
+    footer img {
+      height: 40px;
+      width: auto;
+      display: block
+    }
+
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      transform: translate(-50%, 40px);
+      background: var(--dark);
+      color: #fff;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-size: .88rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: .35s;
+      z-index: 200
+    }
+
+    #toast.on {
+      opacity: 1;
+      transform: translate(-50%, 0)
+    }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s, transform .8s
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(max-width:900px) {
+      .links {
+        display: none
+      }
+
+      .menu-btn {
+        display: grid
+      }
+
+      .tr .btn {
+        display: none
+      }
+
+      .hero {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 150px 20px 0
+      }
+
+      .hero .badge,
+      .hero h1,
+      .portrait,
+      .avail,
+      .intro,
+      .trust,
+      .get,
+      .logos {
+        position: static;
+        transform: none
+      }
+
+      .hero .badge {
+        margin-bottom: 18px
+      }
+
+      .portrait {
+        width: min(320px, 80vw);
+        height: 400px;
+        margin-top: -6px
+      }
+
+      .avail {
+        margin-top: 12px
+      }
+
+      .intro {
+        width: auto;
+        max-width: 420px;
+        text-align: center;
+        margin: 18px 0
+      }
+
+      .trust {
+        max-width: none;
+        margin-bottom: 18px
+      }
+
+      .get {
+        margin-bottom: 26px
+      }
+
+      .logos {
+        width: 100vw;
+        margin-left: -20px;
+        height: 64px
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .cg,
+      .edu {
+        grid-template-columns: 1fr
+      }
+
+      .sl {
+        flex: 0 0 100%;
+        min-width: 100%
+      }
+
+      section {
+        padding: 72px 0
+      }
+    }
+
+    @media(max-width:520px) {
+      .stats {
+        grid-template-columns: 1fr
+      }
+
+      .ed {
+        flex-direction: column
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important
+      }
+
+      .rv {
+        opacity: 1;
+        transform: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top">
+    <div class="wrap">
+      <a class="mark" href="#top" id="mark">Moneesa Ashraf</a>
+      <div class="links"><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#work">Work</a><a
+          href="#education">Education</a></div>
+      <div class="tr"><a class="btn b-dark" href="#contact">Contact</a><button class="menu-btn" id="mb"
+          aria-label="Open menu" aria-expanded="false"><span></span></button></div>
+    </div>
+  </div>
+
+  <nav id="ov" aria-label="Menu">
+    <button class="x" id="mx" aria-label="Close menu">✕</button>
+    <a href="#top">Home</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#work">Work</a><a
+      href="#education">Education</a><a href="#contact">Contact</a>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="badge"><span>✦</span><b id="badge"></b></div>
+      <h1><span class="l1" id="l1"></span><span class="l2 serif" id="l2"></span></h1>
+      <div class="portrait">
+        <div class="arch" id="av"></div>
+      </div>
+      <div class="avail"><i></i><span id="avail"></span></div>
+      <p class="intro" id="intro"></p>
+      <div class="trust">
+        <div class="av"><span>C#</span><span>MVC</span><span>SQL</span></div><span id="trust"></span>
+      </div>
+      <a class="btn b-dark get" href="#contact">→ Get in Touch</a>
+      <div class="logos" aria-hidden="true">
+        <div id="mq"></div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="stats rv" id="stats"></div>
+    </div>
+
+    <section id="skills">
+      <div class="wrap">
+        <span class="eyebrow">Skills</span>
+        <h2>Tools I <span class="serif">work</span> with</h2>
+        <p class="sub">Filter by specialty to see my technical stack.</p>
+        <div class="tabs" id="tabs" role="tablist"></div>
+        <div class="sk" id="sk"></div>
+      </div>
+    </section>
+
+    <section id="experience" style="padding-top:20px">
+      <div class="wrap">
+        <div class="ch">
+          <div><span class="eyebrow">Experience</span>
+            <h2>Where I’ve <span class="serif">worked</span></h2>
+            <p class="sub">Swipe or use the arrows to browse my roles.</p>
+          </div>
+          <div class="ctl"><button class="cb" data-prev="ec" aria-label="Previous role">←</button><button class="cb"
+              data-next="ec" aria-label="Next role">→</button></div>
+        </div>
+        <div class="car" id="ec"></div>
+        <div class="dots" id="ed"></div>
+      </div>
+    </section>
+
+    <section id="work" style="padding-top:20px">
+      <div class="wrap">
+        <div class="ch">
+          <div><span class="eyebrow">Highlights</span>
+            <h2>Key <span class="serif">contributions</span></h2>
+            <p class="sub">Selected work from my current role.</p>
+          </div>
+          <div class="ctl"><button class="cb" data-prev="wc" aria-label="Previous">←</button><button class="cb"
+              data-next="wc" aria-label="Next">→</button></div>
+        </div>
+        <div class="car" id="wc"></div>
+        <div class="dots" id="wd"></div>
+      </div>
+    </section>
+
+    <section id="education" style="padding-top:20px">
+      <div class="wrap">
+        <span class="eyebrow">Education</span>
+        <h2>Academic <span class="serif">background</span></h2>
+        <div class="edu" id="edu"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <span class="eyebrow">Contact</span>
+        <h2>Let’s <span class="serif" style="color:var(--ac)">connect</span> and build together.</h2>
+        <p class="sub" id="csub"></p>
+        <div class="cg">
+          <div class="cards" id="cons"></div>
+          <form id="cf" novalidate>
+            <h3>Send a message</h3>
+            <p class="note">Fill this in and your email app opens with the message ready to send.</p>
+            <label for="fn">Your name</label><input id="fn" placeholder="Your full name" autocomplete="name">
+            <label for="fe">Your email</label><input id="fe" type="email" placeholder="you@example.com"
+              autocomplete="email">
+            <label for="fm">Message</label><textarea id="fm"
+              placeholder="Tell me about your project or role"></textarea>
+            <button class="btn b-dark" type="submit">Send message →</button>
+            <p class="fine" id="fine"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div
+      style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:26px;padding:18px 24px 0;border-top:1px solid rgba(128,128,128,.28);font-size:.8rem;font-family:system-ui,sans-serif">
+      <span>Developed by</span>
+      <a href="/developer" target="_blank" rel="noopener" title="About the developer"
+        style="display:inline-flex;background:#fff;border-radius:10px;padding:5px 14px"><img src="/assets/logo.png"
+          alt="Core Vision Software Development" style="height:44px;width:auto;display:block"
+          onerror="this.parentNode.textContent='Core Vision Software Development'"></a>
+      <a href="/developer" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(128,128,128,.5);border-radius:999px;padding:8px 18px;font-weight:600;color:inherit">Contact
+        the developer</a>
+    </div>
+  </footer>
+  <div id="toast" role="status"></div>
+
+  <script>
+    /* =========================================================
+       EDIT THESE. Leave a field empty ('') and it is hidden.
+       ========================================================= */
+    const DEV = {
+      name: 'Moneesa Ashraf',
+      first: 'Moneesa',
+      role: '.NET Developer',
+      badge: 'C# · ASP.NET MVC · .NET Core',
+      status: 'Currently .NET Developer at RenoSoftwares',
+      intro: 'I design, develop and maintain scalable, secure web applications, including access control systems like HID and PDK.',
+      trust: '3+ years building web applications with C#, ASP.NET MVC and .NET Core',
+      photos: [
+        '/assets/developer/moneesa.jpg',
+        'https://media.licdn.com/dms/image/v2/D4D03AQHzGtyhe3k7uw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1690538864157?e=1796860800&v=beta&t=59oIOqC2D1k1uiUViEhd6hbDYGvyDwH2IqHgfyOaDsE'
+      ],
+      email: 'moneesa015@gmail.com',
+      phone: '+91 60058 95263',
+      whatsapp: '',            // add a number here (e.g. 916005895263) to show a WhatsApp button
+      linkedin: 'https://www.linkedin.com/in/moneesa-ashraf-361357227',
+      linkedinLabel: 'moneesa-ashraf-361357227',
+      tech: ['C#', 'ASP.NET MVC', '.NET Core', 'Web API', 'Entity Framework', 'SQL Server', 'JavaScript', 'jQuery', 'AJAX', 'HID', 'PDK', 'Postman', 'Swagger', 'Git'],
+      stats: [['3+', 'Years of experience'], ['1M+', 'Users served by reporting system'], ['150+', 'Clients supported'], ['20+', 'Features introduced']],
+      skills: {
+        'Core': ['C#', 'ASP.NET MVC', '.NET Core', 'Web API', 'Entity Framework', 'SQL Server'],
+        'Frontend': ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'AJAX'],
+        'Access Control': ['HID', 'PDK (ProdataKey)', 'Credential Management'],
+        'Tools': ['Postman', 'Swagger', 'SQL Server Management Studio', 'Git', 'Slack', 'ClickUp'],
+        'Also know': ['C', 'C++']
+      },
+      experience: [
+        { tag: 'May 2022 – Present', org: 'RenoSoftwares', title: '.NET Developer', points: ['Implemented and integrated the PDK (ProdataKey) Access Control System.', 'Worked on HID Access Control integration and credential management.', 'Designed secure API integrations between internal systems and third-party platforms.', 'Performed database optimization and performance tuning.'], tech: ['C#', 'Web API', 'PDK', 'HID'] },
+        { tag: 'Dec 2021 – Feb 2022', org: 'Al-Muqeet Systems Pvt. Ltd', title: 'Jr. Full Stack Developer (Intern)', points: ['Trained in HTML, CSS, JavaScript, jQuery, AJAX, MVC and SQL.', 'Developed training-based full-stack projects.', 'Gained hands-on experience in frontend-backend integration.'], tech: ['MVC', 'jQuery', 'AJAX', 'SQL'] }
+      ],
+      work: [
+        { tag: 'Access Control', title: 'PDK (ProdataKey) Integration', desc: 'Implemented and integrated the PDK Access Control System into the platform.', tech: ['PDK', 'Web API'] },
+        { tag: 'Access Control', title: 'HID Access Control', desc: 'Worked on HID Access Control integration and credential management.', tech: ['HID', 'Credentials'] },
+        { tag: 'Integrations', title: 'Secure API Integrations', desc: 'Designed secure API integrations between internal systems and third-party platforms.', tech: ['Web API', 'Security'] },
+        { tag: 'Scale', title: 'Dynamic Reporting System', desc: 'Developed a dynamic reporting system serving 1M+ users across 150+ clients.', tech: ['SQL Server', 'C#'] },
+        { tag: 'Product', title: 'Features & Badge Editor', desc: 'Introduced 20+ new features and developed an intuitive badge editor module for a better user experience.', tech: ['MVC', 'JavaScript'] },
+        { tag: 'Performance', title: 'Database Optimization', desc: 'Performed database optimization and performance tuning to improve system speed.', tech: ['SQL Server', 'Tuning'] }
+      ],
+      education: [
+        { deg: 'MCA', school: 'University of Kashmir', years: '2018 – 2022', cgpa: '8.5' },
+        { deg: 'BCA', school: 'University of Kashmir', years: '2015 – 2018', cgpa: '8.4' }
+      ]
+    };
+    /* ========================================================= */
+
+    const $ = id => document.getElementById(id);
+    const clean = s => s.replace(/[^\d+]/g, '');
+    const say = t => { const e = $('toast'); e.textContent = t; e.classList.add('on'); setTimeout(() => e.classList.remove('on'), 2400); };
+    document.title = `${DEV.name} – ${DEV.role} | 3+ Years Experience`;
+
+    $('mark').textContent = DEV.name;
+    $('badge').textContent = DEV.badge;
+    $('l1').textContent = `Hi, I’m ${DEV.first}`;
+    $('l2').textContent = DEV.role;
+    $('avail').textContent = DEV.status;
+    $('intro').textContent = DEV.intro;
+    $('trust').textContent = DEV.trust;
+    $('csub').textContent = 'Reach out by email, phone or LinkedIn, or use the form below.';
+    $('mq').innerHTML = [...DEV.tech, ...DEV.tech].map(t => `<span>${t}</span>`).join('');
+
+    // Portrait: tries each photo, falls back to initials
+    $('av').textContent = DEV.name.split(' ').map(w => w[0]).slice(0, 2).join('');
+    (function tryPhoto(i) {
+      if (i >= DEV.photos.length) return;
+      const img = new Image(); img.alt = DEV.name; img.referrerPolicy = 'no-referrer';
+      img.onload = () => { $('av').textContent = ''; $('av').appendChild(img); };
+      img.onerror = () => tryPhoto(i + 1);
+      img.src = DEV.photos[i];
+    })(0);
+
+    $('stats').innerHTML = DEV.stats.map(([b, s]) => `<div class="stat"><b>${b}</b><span>${s}</span></div>`).join('');
+
+    // Skills filter
+    const cats = ['All', ...Object.keys(DEV.skills)];
+    function skills(cat) {
+      $('tabs').innerHTML = cats.map(c => `<button type="button" role="tab" aria-selected="${c === cat}" class="tab ${c === cat ? 'on' : ''}" data-c="${c}">${c}</button>`).join('');
+      const items = [];
+      Object.entries(DEV.skills).forEach(([g, l]) => { if (cat === 'All' || cat === g) l.forEach(s => items.push([g, s])); });
+      $('sk').innerHTML = items.map(([g, s], i) => `<div class="sc" style="animation-delay:${i * 30}ms"><small>${g}</small><b>${s}</b></div>`).join('');
+    }
+    skills('All');
+    $('tabs').addEventListener('click', e => { const b = e.target.closest('[data-c]'); if (b) skills(b.dataset.c); });
+
+    // Carousel builder
+    const title = t => t.replace(/^(\S+)(.*)$/, (m, a, b) => a + (b ? '<span class="serif">' + b + '</span>' : ''));
+    function carousel(trackId, dotsId, html, items) {
+      const track = $(trackId), dotsEl = $(dotsId);
+      track.innerHTML = items.map(html).join('');
+      dotsEl.innerHTML = items.map((_, i) => `<button type="button" class="dot ${i ? '' : 'on'}" data-i="${i}" aria-label="Go to slide ${i + 1}"></button>`).join('');
+      const slides = [...track.children], dots = [...dotsEl.children];
+      const step = () => slides[0].offsetWidth + 20;
+      track.addEventListener('scroll', () => {
+        const i = Math.min(slides.length - 1, Math.max(0, Math.round(track.scrollLeft / step())));
+        dots.forEach((d, k) => d.classList.toggle('on', k === i));
+      }, { passive: true });
+      dotsEl.addEventListener('click', e => { const d = e.target.closest('[data-i]'); if (d) track.scrollTo({ left: d.dataset.i * step(), behavior: 'smooth' }); });
+      const timer = setInterval(() => {
+        const n = (dots.findIndex(d => d.classList.contains('on')) + 1) % slides.length;
+        track.scrollTo({ left: n * step(), behavior: 'smooth' });
+      }, 6500);
+      ['pointerenter', 'touchstart'].forEach(ev => track.addEventListener(ev, () => clearInterval(timer), { passive: true }));
+    }
+    const tech = l => l.map(t => `<span>${t}</span>`).join('');
+    const topicBtn = t => `<button type="button" class="btn b-ac" data-topic="${t.replace(/"/g, '&quot;')}">Ask about this →</button>`;
+
+    carousel('ec', 'ed', it => `<article class="sl dk"><div><span class="tag">${it.tag}</span><span class="org">${it.org}</span><h3>${title(it.title)}</h3><ul>${it.points.map(p => `<li>${p}</li>`).join('')}</ul></div>
+  <div class="sf"><div class="mt">${tech(it.tech)}</div></div></article>`, DEV.experience);
+
+    carousel('wc', 'wd', it => `<article class="sl lt"><div><span class="tag">${it.tag}</span><h3>${title(it.title)}</h3><p>${it.desc}</p></div>
+  <div class="sf"><div class="mt">${tech(it.tech)}</div>${topicBtn(it.title)}</div></article>`, DEV.work);
+
+    document.addEventListener('click', e => {
+      const p = e.target.closest('[data-prev]'), n = e.target.closest('[data-next]');
+      if (p || n) { const t = $((p || n).dataset.prev || (p || n).dataset.next); const s = t.children[0].offsetWidth + 20; t.scrollBy({ left: p ? -s : s, behavior: 'smooth' }); }
+      const topic = e.target.closest('[data-topic]');
+      if (topic) { $('fm').value = `Hi ${DEV.first}, I’d like to know more about: ${topic.dataset.topic}`; $('contact').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => $('fm').focus(), 600); }
+    });
+
+    // Education
+    $('edu').innerHTML = DEV.education.map(e => `<div class="ed rv"><div><small>${e.years}</small><h3>${e.deg}</h3><p>${e.school}</p></div><div class="gpa"><b>${e.cgpa}</b><span>CGPA</span></div></div>`).join('');
+
+    // Contact cards
+    const I = {
+      mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>',
+      phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>',
+      chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-12 7l-5 1.5L5 16a8 8 0 1 1 16-4z"/></svg>',
+      in: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h4v11H4zM6 3.5a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6zM10 9h3.8v1.6c.6-1 1.9-1.9 3.8-1.9 3.4 0 4.4 2.2 4.4 5.4V20h-4v-5.2c0-1.4-.2-2.6-1.8-2.6s-2.2 1.2-2.2 2.6V20h-4z"/></svg>'
+    };
+    const C = [];
+    if (DEV.email) C.push([I.mail, 'Email', DEV.email, 'mailto:' + DEV.email, DEV.email]);
+    if (DEV.phone) C.push([I.phone, 'Call', DEV.phone, 'tel:' + clean(DEV.phone), DEV.phone]);
+    if (DEV.whatsapp) C.push([I.chat, 'WhatsApp', 'Chat with me', 'https://wa.me/' + clean(DEV.whatsapp), '']);
+    if (DEV.linkedin) C.push([I.in, 'LinkedIn', DEV.linkedinLabel, DEV.linkedin, DEV.linkedin]);
+    $('cons').innerHTML = C.map(([ic, l, v, h, cp]) => `<div class="con"><a class="main" href="${h}" ${h.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}><span class="ci">${ic}</span><span style="min-width:0"><small>${l}</small><b>${v}</b></span></a>${cp ? `<button type="button" class="cp" data-copy="${cp}">Copy</button>` : ''}</div>`).join('');
+    $('cons').addEventListener('click', async e => {
+      const b = e.target.closest('[data-copy]'); if (!b) return;
+      try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied!'; say('Copied to clipboard'); setTimeout(() => b.textContent = 'Copy', 1600); } catch (_) { }
+    });
+
+    // Contact form opens the email app with the message filled in
+    $('fine').textContent = DEV.email ? `Messages go to ${DEV.email}` : '';
+    $('cf').addEventListener('submit', e => {
+      e.preventDefault();
+      const n = $('fn').value.trim(), m = $('fe').value.trim(), t = $('fm').value.trim();
+      if (!n || !/^\S+@\S+\.\S+$/.test(m) || !t) { say('Please fill in your name, a valid email and a message'); return; }
+      location.href = `mailto:${DEV.email}?subject=${encodeURIComponent('Portfolio enquiry from ' + n)}&body=${encodeURIComponent(t + '\n\nFrom: ' + n + '\nEmail: ' + m)}`;
+      say('Opening your email app…');
+    });
+
+    // Menu overlay
+    const ov = $('ov'), mb = $('mb');
+    const toggle = o => { ov.classList.toggle('on', o); mb.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; };
+    mb.onclick = () => toggle(true); $('mx').onclick = () => toggle(false);
+    ov.addEventListener('click', e => { if (e.target.tagName === 'A') toggle(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggle(false); });
+
+    // Reveal
+    const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), { threshold: .12 });
+    document.querySelectorAll('.rv,section .ch,.stat').forEach(el => { el.classList.add('rv'); io.observe(el); });
+  </script>
+</body>
+
+</html>
