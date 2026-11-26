@@ -52,6 +52,15 @@ export const PAGES: PageEntry[] = [
     accent: '#2A2F7A'
   },
   {
+    slug: 'mir-medicate',
+    file: 'mir-medicate.html',
+    title: 'Mir Medical Store (Mir Medicate) – Pharmacy & Healthcare, Arwani, Anantnag',
+    name: 'Mir Medicate',
+    description: 'Established pharmacy near Arwani Bridge, offering essential medicines and general physician consultation.',
+    category: 'Healthcare',
+    accent: '#287A68'
+  },
+  {
     slug: 'wah-kabab',
     file: 'wah-kabab.html',
     title: 'Wah Kabab – Authentic Mughlai in Lal Chowk, Srinagar',
