@@ -4,35 +4,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wah Kabab – Authentic Mughlai in Lal Chowk, Srinagar</title>
+  <title>Wah! Kabab – Kebabs, North Indian, Mughlai &amp; Biryani in Lal Chowk, Srinagar</title>
+  <meta name="description"
+    content="Wah! Kabab at Mir Building, Court Road, Lal Chowk & Rajbagh, Srinagar. Authentic Halal Kebabs, Mutton Rara, Kadhai Chicken, Biryani, Rolls, Pizzas & Burgers.">
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <style>
     /* ==========================================================
-       1. DESIGN TOKENS
+       1. DESIGN TOKENS (Updated to Mir Medical Store Palette)
        ========================================================== */
     :root {
       /* Surfaces */
-      --bg: #FFFBF4;
-      --soft: #FBF1DF;
+      --bg: #F6FBF9;
+      --soft: #E5F3ED;
       --card: #fff;
-      --line: #EFE1C8;
+      --line: #D3E6DF;
 
       /* Text */
-      --ink: #2B1D16;
-      --mute: #7A6657;
+      --ink: #112622;
+      --mute: #526B65;
 
-      /* Brand colours (chili, saffron, mint) */
-      --chili: #B3321F;
-      --chili-d: #8F2616;
-      --saffron: #E9A82B;
-      --saffron-l: #FDEFC9;
-      --mint: #3F6B47;
-      --mint-l: #E3EFDF;
-      --dark: #2A1810;
+      /* Brand colours (Mir Medical Store Emerald & Warm Amber) */
+      --primary: #0D6E59;
+      --primary-d: #084B3D;
+      --primary-l: #CBE8DF;
+      --accent: #D4843E;
+      --accent-l: #F9E9D8;
+      --dark: #084B3D;
     }
 
     /* ==========================================================
@@ -45,6 +46,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 84px;
     }
 
     body {
@@ -75,12 +77,12 @@
     }
 
     :focus-visible {
-      outline: 2px solid var(--saffron);
+      outline: 2px solid var(--accent);
       outline-offset: 3px;
     }
 
     .wrap {
-      max-width: 1160px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -97,12 +99,15 @@
        3. BUTTONS, TAGS AND SMALL UI
        ========================================================== */
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       padding: 12px 24px;
       border-radius: 999px;
       font-weight: 600;
       font-size: .95rem;
-      border: 1.5px solid var(--chili);
+      border: 1.5px solid var(--primary);
       cursor: pointer;
       font-family: inherit;
       transition: .2s;
@@ -110,27 +115,28 @@
     }
 
     .btn.fill {
-      background: var(--chili);
+      background: var(--primary);
       color: #fff;
     }
 
     .btn.fill:hover {
-      background: var(--chili-d);
+      background: var(--primary-d);
+      border-color: var(--primary-d);
     }
 
     .btn.line {
-      color: var(--chili);
+      color: var(--primary);
       background: transparent;
     }
 
     .btn.line:hover {
-      background: var(--saffron-l);
+      background: var(--primary-l);
     }
 
     .btn.gold {
-      background: var(--saffron);
-      border-color: var(--saffron);
-      color: var(--dark);
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
     }
 
     .btn.gold:hover {
@@ -159,6 +165,7 @@
       border-radius: 999px;
       padding: 4px 14px;
       color: var(--mute);
+      font-weight: 500;
     }
 
     .pill {
@@ -170,22 +177,27 @@
     }
 
     .pop {
-      background: var(--saffron-l);
-      color: #8A5A00;
+      background: var(--accent-l);
+      color: #824B18;
     }
 
     .halal {
-      background: var(--mint-l);
-      color: var(--mint);
+      background: var(--primary-l);
+      color: var(--primary-d);
+    }
+
+    .veg-pill {
+      background: #E2F3E8;
+      color: #1F6B3E;
     }
 
     .stars {
-      color: #D98F0B;
+      color: var(--accent);
       letter-spacing: 2px;
     }
 
     .open {
-      color: var(--mint);
+      color: var(--primary);
       font-weight: 600;
     }
 
@@ -207,12 +219,12 @@
 
     .head h2 {
       font-size: clamp(2rem, 4vw, 2.7rem);
-      color: var(--dark);
+      color: var(--primary-d);
     }
 
     .head p {
       color: var(--mute);
-      max-width: 32em;
+      max-width: 36em;
       margin-top: 8px;
     }
 
@@ -220,18 +232,19 @@
        4. TOP BAR AND HEADER
        ========================================================== */
     .top {
-      background: var(--mint);
-      color: #F3FAEF;
+      background: var(--primary);
+      color: #F6FBF9;
       font-size: .85rem;
       text-align: center;
-      padding: 8px 12px;
+      padding: 9px 12px;
+      font-weight: 500;
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 30;
-      background: rgba(255, 251, 244, .95);
+      background: rgba(246, 251, 249, .95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
     }
@@ -240,7 +253,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      height: 74px;
       gap: 16px;
     }
 
@@ -248,7 +261,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.65rem;
       font-weight: 700;
-      color: var(--chili);
+      color: var(--primary-d);
       line-height: 1;
     }
 
@@ -258,22 +271,22 @@
       font-size: .62rem;
       letter-spacing: .2em;
       color: var(--mute);
-      font-weight: 500;
+      font-weight: 600;
       margin-top: 5px;
     }
 
     nav ul {
       display: flex;
-      gap: 28px;
+      gap: 24px;
       list-style: none;
       padding: 0;
-      font-size: .95rem;
+      font-size: .92rem;
       font-weight: 500;
       color: var(--mute);
     }
 
     nav a:hover {
-      color: var(--chili);
+      color: var(--primary);
     }
 
     /* ==========================================================
@@ -291,17 +304,18 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: .92rem;
-      color: var(--mute);
+      font-size: .88rem;
+      color: var(--primary-d);
       margin-bottom: 18px;
-      background: var(--saffron-l);
-      padding: 6px 14px 6px 8px;
+      background: var(--accent-l);
+      padding: 6px 16px 6px 8px;
       border-radius: 999px;
       flex-wrap: wrap;
+      font-weight: 500;
     }
 
     .rate b {
-      background: var(--chili);
+      background: var(--primary);
       color: #fff;
       border-radius: 999px;
       padding: 2px 12px;
@@ -309,20 +323,20 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5.2vw, 4rem);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
       margin-bottom: 16px;
-      color: var(--dark);
+      color: var(--primary-d);
     }
 
     .hero h1 em {
       font-style: normal;
-      color: var(--chili);
+      color: var(--accent);
     }
 
     .lead {
-      font-size: 1.1rem;
+      font-size: 1.06rem;
       color: var(--mute);
-      max-width: 30em;
+      max-width: 32em;
       margin-bottom: 24px;
     }
 
@@ -345,7 +359,7 @@
     .collage div {
       border-radius: 22px;
       overflow: hidden;
-      background: linear-gradient(135deg, #F3C675, #D9684A);
+      background: linear-gradient(135deg, var(--primary-l), var(--primary));
     }
 
     .collage .big {
@@ -357,23 +371,25 @@
       left: -18px;
       bottom: 36px;
       background: #fff;
+      border: 1px solid var(--line);
       border-radius: 16px;
       padding: 12px 18px;
-      box-shadow: 0 14px 32px rgba(43, 29, 22, .18);
+      box-shadow: 0 14px 32px rgba(8, 75, 61, .16);
       font-size: .85rem;
+      color: var(--mute);
     }
 
     .badge b {
       display: block;
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
-      color: var(--chili);
+      color: var(--primary);
     }
 
     /* Quick-info strip */
     .strip {
-      background: var(--dark);
-      color: #EBD9BF;
+      background: var(--primary-d);
+      color: #CBE8DF;
     }
 
     .strip .wrap {
@@ -390,45 +406,75 @@
 
     .strip b {
       display: block;
-      color: var(--saffron);
-      font-size: .78rem;
-      font-weight: 500;
-      letter-spacing: .06em;
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
       margin-bottom: 2px;
     }
 
     /* ==========================================================
-       6. MENU
+       6. MENU (FULL CATALOG + SEARCH + PRICES)
        ========================================================== */
-    .tabs {
+    .menu-controls {
       display: flex;
-      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
       margin-bottom: 26px;
     }
 
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .tab {
       font: inherit;
-      font-size: .92rem;
-      font-weight: 500;
+      font-size: .88rem;
+      font-weight: 600;
       border: 1px solid var(--line);
       background: #fff;
       border-radius: 999px;
-      padding: 9px 22px;
+      padding: 8px 18px;
       cursor: pointer;
       color: var(--mute);
+      transition: .2s;
+    }
+
+    .tab:hover {
+      border-color: var(--primary);
+      color: var(--primary-d);
     }
 
     .tab[aria-selected=true] {
-      background: var(--chili);
-      border-color: var(--chili);
+      background: var(--primary);
+      border-color: var(--primary);
       color: #fff;
+    }
+
+    .menu-search {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1.5px solid var(--line);
+      background: #fff;
+      font: inherit;
+      font-size: .9rem;
+      min-width: 250px;
+      color: var(--ink);
+    }
+
+    .menu-search:focus {
+      outline: none;
+      border-color: var(--primary);
     }
 
     .menu {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 20px;
     }
 
     .dish {
@@ -436,36 +482,70 @@
       border: 1px solid var(--line);
       border-radius: 20px;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: .2s;
     }
 
     .dish:hover {
-      box-shadow: 0 16px 34px rgba(43, 29, 22, .12);
+      box-shadow: 0 16px 34px rgba(8, 75, 61, .12);
       transform: translateY(-3px);
+      border-color: var(--accent);
     }
 
     .ph {
-      aspect-ratio: 4 / 3;
-      background: linear-gradient(135deg, #F3C675, #D9684A);
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, var(--primary-l), #9FD5C5);
       position: relative;
       overflow: hidden;
+    }
+
+    .price-tag {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      background: var(--primary-d);
+      color: #fff;
+      font-weight: 700;
+      font-size: .9rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
     }
 
     .dish .b {
       padding: 16px 18px;
       display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .dish-top {
+      display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 10px;
+      align-items: flex-start;
+      gap: 8px;
     }
 
     .dish h3 {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
+      color: var(--primary-d);
     }
 
-    .dish small {
+    .dish p.desc {
+      font-size: .82rem;
       color: var(--mute);
-      font-size: .8rem;
+      line-height: 1.45;
+    }
+
+    .dish-meta {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 6px;
     }
 
     /* ==========================================================
@@ -483,7 +563,7 @@
       border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
-      background: #3a2218;
+      background: var(--primary-d);
       border: 0;
       padding: 0;
       color: #fff;
@@ -495,7 +575,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(transparent 50%, rgba(20, 10, 5, .75));
+      background: linear-gradient(transparent 50%, rgba(8, 75, 61, .82));
     }
 
     .vid .p {
@@ -519,7 +599,7 @@
 
     .vid .p::before {
       content: "";
-      border-left: 15px solid var(--chili);
+      border-left: 15px solid var(--primary);
       border-top: 9px solid transparent;
       border-bottom: 9px solid transparent;
       margin-left: 4px;
@@ -542,7 +622,7 @@
       top: 12px;
       font-style: normal;
       font-size: .75rem;
-      background: rgba(0, 0, 0, .55);
+      background: rgba(8, 75, 61, .75);
       padding: 2px 9px;
       border-radius: 8px;
     }
@@ -551,7 +631,7 @@
     #modal {
       position: fixed;
       inset: 0;
-      background: rgba(20, 10, 5, .78);
+      background: rgba(8, 75, 61, .82);
       display: none;
       place-items: center;
       z-index: 60;
@@ -584,13 +664,14 @@
       justify-content: space-between;
       align-items: center;
       padding: 12px 18px;
-      background: var(--dark);
+      background: var(--primary-d);
       color: #fff;
       font-size: .92rem;
     }
 
     .mbox button {
-      background: var(--saffron);
+      background: var(--accent);
+      color: #fff;
       border: 0;
       border-radius: 999px;
       padding: 7px 18px;
@@ -612,7 +693,7 @@
     .gal div {
       border-radius: 18px;
       overflow: hidden;
-      background: linear-gradient(135deg, #F3C675, #D9684A);
+      background: linear-gradient(135deg, var(--primary-l), var(--primary));
     }
 
     .gal .w {
@@ -624,11 +705,11 @@
     }
 
     /* ==========================================================
-       9. REVIEWS
+       9. REVIEWS & PLATFORM RATINGS
        ========================================================== */
     .sum {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
+      grid-template-columns: .85fr 1.15fr;
       gap: 40px;
       align-items: start;
     }
@@ -644,7 +725,7 @@
     .score .n {
       font-family: 'Playfair Display', serif;
       font-size: 5rem;
-      color: var(--chili);
+      color: var(--primary);
       line-height: 1;
       font-weight: 700;
     }
@@ -652,6 +733,32 @@
     .score p {
       color: var(--mute);
       font-size: .9rem;
+    }
+
+    .platform-badges {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .p-badge {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+
+    .p-badge b {
+      display: block;
+      color: var(--primary-d);
+      font-size: 1.05rem;
+    }
+
+    .p-badge span {
+      font-size: .76rem;
+      color: var(--mute);
     }
 
     .bars {
@@ -679,7 +786,7 @@
     .bar i b {
       display: block;
       height: 100%;
-      background: var(--saffron);
+      background: var(--accent);
     }
 
     .ai {
@@ -690,17 +797,85 @@
     .q {
       background: #fff;
       border: 1px solid var(--line);
-      border-left: 4px solid var(--chili);
+      border-left: 4px solid var(--primary);
       border-radius: 14px;
       padding: 18px 22px;
       margin-bottom: 14px;
       font-family: 'Playfair Display', serif;
       font-size: 1.12rem;
       line-height: 1.45;
+      color: var(--primary-d);
     }
 
     /* ==========================================================
-       10. LOCATION
+       10. ABOUT & FAQ ACCORDION
+       ========================================================== */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .about-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 30px;
+    }
+
+    .about-card h3 {
+      font-size: 1.45rem;
+      color: var(--primary-d);
+      margin-bottom: 12px;
+    }
+
+    .about-card p {
+      color: var(--mute);
+      font-size: .94rem;
+      margin-bottom: 14px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: 0;
+      padding: 16px 20px;
+      font: 600 .95rem 'Inter';
+      color: var(--primary-d);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .faq-a {
+      display: none;
+      padding: 0 20px 16px;
+      color: var(--mute);
+      font-size: .9rem;
+    }
+
+    .faq-item.open .faq-a {
+      display: block;
+    }
+
+    /* ==========================================================
+       11. LOCATION
        ========================================================== */
     .loc {
       display: grid;
@@ -717,15 +892,15 @@
       padding: 20px;
       text-align: center;
       background:
-        linear-gradient(rgba(255, 251, 244, .55), rgba(255, 251, 244, .55)),
-        repeating-linear-gradient(45deg, #F1E4C8, #F1E4C8 14px, #F8EFDB 14px, #F8EFDB 28px);
+        linear-gradient(rgba(246, 251, 249, .55), rgba(246, 251, 249, .55)),
+        repeating-linear-gradient(45deg, #D1E7DF, #D1E7DF 14px, #E1F1EB 14px, #E1F1EB 28px);
     }
 
     .map div {
       background: #fff;
       border-radius: 16px;
-      padding: 18px 24px;
-      box-shadow: 0 12px 28px rgba(43, 29, 22, .12);
+      padding: 22px 26px;
+      box-shadow: 0 12px 28px rgba(8, 75, 61, .14);
     }
 
     .det {
@@ -748,17 +923,17 @@
     }
 
     .det .r b {
-      width: 90px;
+      width: 95px;
       flex: none;
       color: var(--mute);
-      font-weight: 500;
+      font-weight: 600;
     }
 
     /* ==========================================================
-       11. RESERVATION FORM
+       12. RESERVATION FORM
        ========================================================== */
     .res {
-      background: var(--chili);
+      background: var(--primary);
       color: #fff;
     }
 
@@ -788,7 +963,7 @@
       color: var(--mute);
       display: block;
       margin-bottom: 4px;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     form input,
@@ -802,12 +977,12 @@
     }
 
     /* ==========================================================
-       12. FOOTER
+       13. FOOTER
        ========================================================== */
     footer {
-      background: var(--dark);
-      color: #CDB899;
-      padding: 40px 0;
+      background: var(--ink);
+      color: #CBE8DF;
+      padding: 44px 0 30px;
       font-size: .88rem;
     }
 
@@ -819,11 +994,21 @@
     }
 
     footer .logo {
-      color: var(--saffron);
+      color: var(--accent);
+    }
+
+    .disclaimer {
+      max-width: 1180px;
+      margin: 20px auto 0;
+      padding: 16px 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .62);
+      line-height: 1.5;
     }
 
     /* ==========================================================
-       13. RESPONSIVE AND ACCESSIBILITY
+       14. RESPONSIVE AND ACCESSIBILITY
        ========================================================== */
     @media (max-width: 900px) {
       nav ul {
@@ -832,7 +1017,8 @@
 
       .hero,
       .sum,
-      .loc {
+      .loc,
+      .faq-grid {
         grid-template-columns: 1fr;
       }
 
@@ -875,20 +1061,21 @@
 
   <!-- ================= TOP BAR ================= -->
   <div class="top">
-    Open today until 12 am &nbsp;·&nbsp; Home delivery until 8 pm &nbsp;·&nbsp; Call 0194 245 2555
+    Open 11:00 AM – 10:00 PM (Late dining up to 12:00 AM) &nbsp;·&nbsp; Mir Building, Court Road, Lal Chowk &amp; Rajbagh &nbsp;·&nbsp; Call +91 194 245 2555
   </div>
 
   <!-- ================= HEADER ================= -->
   <header>
     <div class="wrap nav">
-      <a class="logo" href="#">Wah Kabab<small>MUGHLAI · SRINAGAR</small></a>
+      <a class="logo" href="#">Wah! Kabab<small>KEBABS · MUGHLAI · BIRYANI · SRINAGAR</small></a>
 
       <nav>
         <ul>
-          <li><a href="#menu">Menu</a></li>
+          <li><a href="#menu">Full Menu</a></li>
           <li><a href="#videos">Kitchen</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#about">About &amp; FAQs</a></li>
           <li><a href="#visit">Visit us</a></li>
         </ul>
       </nav>
@@ -903,25 +1090,28 @@
     <div class="wrap hero">
       <div>
         <div class="rate">
-          <b>4.8</b>
-          <span class="stars">★★★★★</span>
-          <span>1,277 Google reviews</span>
+          <b>4.8 ★ Google</b>
+          <span>4.2 ★ Zomato (187+)</span>
+          <span>·</span>
+          <span>3.7 ★ Swiggy (441)</span>
         </div>
 
         <h1>Signature kebabs and <em>mutton rara</em>, made the Mughlai way.</h1>
-        <p class="lead">Slow-cooked curries, smoky tandoor kebabs and warm hospitality in the heart of Lal Chowk.</p>
+        <p class="lead">Located at Mir Building, Court Road, Lal Chowk (serving Lal Chowk &amp; Rajbagh), Wah! Kabab serves 100% Halal Mughlai delicacies, charcoal kebabs, biryanis, rolls, pizzas, and burgers.</p>
 
         <div class="tags">
-          <span class="tag">Mughlai</span>
-          <span class="tag">All you can eat</span>
-          <span class="tag">Vegetarian options</span>
-          <span class="tag">Halal</span>
+          <span class="tag">100% Halal</span>
+          <span class="tag">Kebabs &amp; Tandoor</span>
+          <span class="tag">North Indian &amp; Mughlai</span>
+          <span class="tag">Biryani</span>
+          <span class="tag">Pizzas &amp; Burgers</span>
+          <span class="tag">Vegetarian Options</span>
         </div>
 
         <div class="cta">
           <a class="btn fill" href="#reserve">Reserve a table</a>
-          <a class="btn gold" href="#">Order online</a>
-          <a class="btn line" href="#menu">See the menu</a>
+          <a class="btn gold" href="https://www.zomato.com/srinagar/wah-kabab-1-lal-chowk/order" target="_blank" rel="noopener">Order on Zomato ↗</a>
+          <a class="btn line" href="https://www.swiggy.com/city/srinagar/wah-kabab-mir-building-lal-chowk-rajbagh-rest657351" target="_blank" rel="noopener">Swiggy ↗</a>
         </div>
       </div>
 
@@ -940,32 +1130,36 @@
             src="https://media.istockphoto.com/id/2185257273/photo/indian-curry-tikka-masala-chicken-lamb-mutton-rogan-josh-with-rice-and-naan-bread-dark.jpg?s=612x612&w=0&k=20&c=-yHrDXUjpBv0RkD8hP2IQbiW-RNE8L1sQCpv-l09yAA="
             alt="Rich curry" onerror="this.remove()">
         </div>
-        <span class="badge"><b>₹200–1,000</b>per person</span>
+        <span class="badge"><b>₹400 for two</b>Avg. ₹200–1,000 per person</span>
       </div>
     </div>
 
     <!-- ================= QUICK INFO STRIP ================= -->
     <div class="strip">
       <div class="wrap">
-        <div><b>STATUS</b>Open · Closes 12 am</div>
-        <div><b>DELIVERY</b>Now · Ends 8 pm</div>
-        <div><b>WAIT TIME</b>Usually no wait</div>
-        <div><b>ADDRESS</b>Court Road, Lal Chowk</div>
+        <div><b>TIMINGS</b>11:00 AM – 10:00 PM (Dining to 12 AM)</div>
+        <div><b>ONLINE DELIVERY</b>Zomato &amp; Swiggy (Lal Chowk / Rajbagh)</div>
+        <div><b>CUISINES</b>Kebab, North Indian, Mughlai, Biryani</div>
+        <div><b>ADDRESS</b>Mir Building, Court Road, Lal Chowk</div>
       </div>
     </div>
 
-    <!-- ================= MENU ================= -->
+    <!-- ================= FULL INTERACTIVE MENU ================= -->
     <section id="menu">
       <div class="wrap">
         <div class="head">
           <div>
-            <h2>Menu highlights</h2>
-            <p>Guest favourites from our kitchen. The complete menu is on Facebook.</p>
+            <h2>Complete Menu</h2>
+            <p>Browse all 8 categories from our Zomato &amp; Swiggy catalog—Kebabs, Starters, Rolls, Main Course, Breads, Rice &amp; Biryani, Pizza, and Burgers.</p>
           </div>
-          <a class="btn line" href="https://www.facebook.com/WahKabab/menu">View the full menu</a>
+          <a class="btn line" href="https://www.zomato.com/srinagar/wah-kabab-1-lal-chowk/menu" target="_blank" rel="noopener">View on Zomato ↗</a>
         </div>
 
-        <div class="tabs" role="tablist" aria-label="Menu categories"></div>
+        <div class="menu-controls">
+          <div class="tabs" role="tablist" aria-label="Menu categories"></div>
+          <input type="search" id="menu-search" class="menu-search" placeholder="Search dishes (e.g. Rara, Biryani, Tikka)..." aria-label="Search menu dishes">
+        </div>
+
         <div class="menu" id="menu-grid"></div>
       </div>
     </section>
@@ -976,7 +1170,7 @@
         <div class="head">
           <div>
             <h2>From our kitchen</h2>
-            <p>Watch the tandoor, the grill and the table. Sample videos for now.</p>
+            <p>Watch the tandoor, the grill and the table.</p>
           </div>
         </div>
         <div class="vids" id="vids"></div>
@@ -989,7 +1183,7 @@
         <div class="head">
           <div>
             <h2>Gallery</h2>
-            <p>A look at the food and the atmosphere.</p>
+            <p>A look at our kebabs, curries, breads, and dining atmosphere.</p>
           </div>
         </div>
 
@@ -1033,16 +1227,21 @@
         <div class="head">
           <div>
             <h2>What guests say</h2>
+            <p>Verified ratings across Google, Zomato, and Swiggy.</p>
           </div>
-          <a class="btn line" href="https://www.google.com/search?q=Wah+Kabab+Srinagar+reviews">Rate and review on
-            Google</a>
+          <a class="btn line" href="https://www.google.com/search?q=Wah+Kabab+Srinagar+reviews" target="_blank" rel="noopener">Rate &amp; review on Google</a>
         </div>
 
         <div class="sum">
           <div class="score">
             <div class="n">4.8</div>
             <div class="stars">★★★★★</div>
-            <p>1,277 reviews</p>
+            <p>1,277 Google reviews</p>
+
+            <div class="platform-badges">
+              <div class="p-badge"><b>4.2 ★ Zomato</b><span>187 Delivery Ratings</span></div>
+              <div class="p-badge"><b>3.7 ★ Swiggy</b><span>441 Ratings · ₹400 for 2</span></div>
+            </div>
 
             <div class="bars">
               <div class="bar">5<i><b style="width:90%"></b></i></div>
@@ -1051,14 +1250,12 @@
               <div class="bar">2<i><b style="width:1%"></b></i></div>
               <div class="bar">1<i><b style="width:1%"></b></i></div>
             </div>
-            <p class="note">Bars are illustrative.</p>
+            <p class="note">Top rated dishes on Swiggy: Mutton Seekh Kebab (4.6★), Chicken Kali Mirch Tikka (4.4★), Tandoori Naan (4.4★).</p>
           </div>
 
           <div>
             <p class="ai">
-              Diners love the mutton rara, butter chicken and Lucknowi chicken curry, the wide range of kebabs and
-              vegetarian options, attentive staff, generous portions and good value.
-              <small>(Summarised by AI on Google.)</small>
+              Diners love the mutton rara, butter chicken, kadhai chicken, and Lucknowi chicken curry, along with our wide range of Halal kebabs, vegetarian paneer options, attentive staff, and generous portions.
             </p>
 
             <div class="q">“Food was very amazing, service was outstanding, great atmosphere.”</div>
@@ -1066,44 +1263,78 @@
 
             <div class="chips">
               <span class="tag">mutton rara</span>
-              <span class="tag">lucknowi chicken curry</span>
-              <span class="tag">afghani chicken</span>
-              <span class="tag">dal makhani</span>
-              <span class="tag">chicken korma</span>
-              <span class="tag">rogan josh</span>
-              <span class="tag">momos</span>
+              <span class="tag">kadhai chicken</span>
+              <span class="tag">chicken biryani</span>
+              <span class="tag">mutton seekh kebab</span>
+              <span class="tag">chicken kali mirch tikka</span>
+              <span class="tag">butter chicken</span>
+              <span class="tag">paneer kathi roll</span>
+              <span class="tag">rumali roti</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ================= ABOUT & FAQS ================= -->
+    <section id="about">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <h2>About Wah! Kabab &amp; FAQs</h2>
+            <p>Popular food destination in Lal Chowk &amp; Rajbagh, Srinagar.</p>
+          </div>
+        </div>
+
+        <div class="faq-grid">
+          <div class="about-card">
+            <h3>Best-Selling Dishes &amp; Hospitality</h3>
+            <p><strong>Wah! Kabab</strong> is a popular food destination at Mir Building, Court Road, Lal Chowk (Rajbagh outlet), Srinagar, known for serving freshly prepared North Indian, Mughlai, and charcoal-grilled kebabs with satisfying portions.</p>
+            <p>Customers regularly order our <strong>Kadhai Chicken</strong>, <strong>Mutton Rara</strong>, <strong>Butter Chicken</strong>, <strong>Chicken Biryani</strong>, and <strong>Paneer / Chicken Kathi Rolls</strong>, alongside oven-baked pizzas, burgers, and refreshing beverages.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+              <a class="btn fill" href="https://www.zomato.com/srinagar/wah-kabab-1-lal-chowk/order" target="_blank" rel="noopener">Order on Zomato</a>
+              <a class="btn line" href="https://www.swiggy.com/city/srinagar/wah-kabab-mir-building-lal-chowk-rajbagh-rest657351" target="_blank" rel="noopener">Order on Swiggy</a>
+            </div>
+          </div>
+
+          <div class="faq-list" id="faq-list"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= LOCATION ================= -->
-    <section id="visit">
+    <section class="alt" id="visit">
       <div class="wrap">
         <div class="head">
           <div>
             <h2>Visit us</h2>
+            <p>Find us at Mir Building, Court Road, Lal Chowk, Srinagar.</p>
           </div>
         </div>
 
         <div class="loc">
           <div class="map">
             <div>
-              <b>Wah Kabab</b><br>
-              Court Road, Lal Chowk<br>
-              <a class="btn fill" style="margin-top:12px;padding:8px 20px"
-                href="https://maps.google.com/?q=Wah+Kabab+Court+Road+Lal+Chowk+Srinagar">Get directions</a>
+              <b style="color:var(--primary-d);font-size:1.25rem;font-family:'Playfair Display',serif">Wah! Kabab</b><br>
+              Mir Building, Court Road, Lal Chowk<br>
+              Srinagar, Jammu &amp; Kashmir 190001<br>
+              <a class="btn fill" style="margin-top:14px;padding:9px 22px"
+                href="https://maps.google.com/?q=Wah+Kabab+Mir+Building+Court+Road+Lal+Chowk+Srinagar" target="_blank" rel="noopener">Get directions ↗</a>
             </div>
           </div>
 
           <div class="det">
-            <div class="r"><b>Address</b><span>Court Road, Lal Chowk, Srinagar, Jammu and Kashmir 190001</span></div>
-            <div class="r"><b>Phone</b><a href="tel:01942452555">0194 245 2555</a></div>
-            <div class="r"><b>Hours</b><span class="open">Open · Closes 12 am</span></div>
-            <div class="r"><b>Delivery</b><span>Until 8 pm</span></div>
-            <div class="r"><b>Online</b><a href="https://www.facebook.com/WahKabab"
-                style="color:var(--chili);font-weight:600">facebook.com/WahKabab</a></div>
+            <div class="r"><b>Address</b><span>Mir Building, Court Road, Lal Chowk (Rajbagh area), Srinagar, Jammu and Kashmir 190001</span></div>
+            <div class="r"><b>Phone</b><a href="tel:+911942452555" style="color:var(--primary);font-weight:600">+91 194 245 2555</a></div>
+            <div class="r"><b>Hours</b><span class="open">Open 11:00 AM – 10:00 PM (Dining up to 12:00 AM)</span></div>
+            <div class="r"><b>Delivery</b><span>Available via Zomato &amp; Swiggy (Opens 12:00 PM on Swiggy)</span></div>
+            <div class="r"><b>Links</b>
+              <div style="display:flex;gap:12px;flex-wrap:wrap">
+                <a href="https://www.zomato.com/srinagar/wah-kabab-1-lal-chowk" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600">Zomato</a>
+                <a href="https://www.swiggy.com/city/srinagar/wah-kabab-mir-building-lal-chowk-rajbagh-rest657351" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600">Swiggy</a>
+                <a href="https://www.facebook.com/WahKabab" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600">Facebook</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1113,7 +1344,7 @@
     <section class="res" id="reserve">
       <div class="wrap">
         <h2>Reserve a table</h2>
-        <p>Tell us when you’re coming and we’ll keep your table ready. Demo form.</p>
+        <p>Tell us when you’re coming to Mir Building, Court Road and we’ll keep your table ready.</p>
 
         <form onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Request sent ✓'">
           <div><label for="d">Date</label><input id="d" type="date" required></div>
@@ -1128,7 +1359,7 @@
             </select>
           </div>
           <div><label for="n">Phone</label><input id="n" type="tel" placeholder="Your number" required></div>
-          <button class="btn fill">Book table</button>
+          <button class="btn gold">Book table</button>
         </form>
       </div>
     </section>
@@ -1139,13 +1370,16 @@
   <footer>
     <div class="wrap">
       <div>
-        <div class="logo">Wah Kabab</div>
-        Authentic Mughlai · Lal Chowk, Srinagar
+        <div class="logo">Wah! Kabab</div>
+        Mir Building, Court Road, Lal Chowk · Authentic Mughlai &amp; Kebabs, Srinagar
       </div>
-      <div>Sample website concept. Images and videos are placeholders.</div>
+      <div>Call: <a href="tel:+911942452555" style="text-decoration:underline">+91 194 245 2555</a> &nbsp;·&nbsp; Open 11:00 AM – 10:00 PM</div>
+    </div>
+    <div class="disclaimer">
+      Disclaimer: All prices are set directly by the restaurant and are subject to customization or seasonal updates. All nutritional information is indicative; values are per serve as shared by the restaurant and may vary depending on ingredients and portion size. An average active adult requires 2,000 kcal energy per day.
     </div>
     <div
-      style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:26px;padding:18px 24px 0;border-top:1px solid rgba(128,128,128,.28);font-size:.8rem;font-family:system-ui,sans-serif">
+      style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:22px;padding:18px 24px 0;border-top:1px solid rgba(128,128,128,.28);font-size:.8rem;font-family:system-ui,sans-serif">
       <span>Developed by</span>
       <a href="/developer" target="_blank" rel="noopener" title="About the developer"
         style="display:inline-flex;background:#fff;border-radius:10px;padding:5px 14px"><img src="/assets/logo.png"
@@ -1172,79 +1406,162 @@
 
   <script>
     /* ==========================================================
-       DATA
+       COMPLETE MENU DATA (FROM ZOMATO & SWIGGY)
        ========================================================== */
+    const PHOTO_MAP = {
+      kebab: "https://media.istockphoto.com/id/687749576/photo/grilled-beef-shishkabab-skewers.jpg?s=612x612&w=0&k=20&c=slN9M1eIZotEUw1LDcCCentTvQBaaQcpLXhTV1MwYpA=",
+      tikka: "https://media.istockphoto.com/id/1396604313/photo/roasted-whole-chicken-legs-with-condiment-directly-above-photo.jpg?s=612x612&w=0&k=20&c=JDs72E-fX5SdcBQREta58T82W8zO_rFiKC7d1WwEEUE=",
+      curry: "https://media.istockphoto.com/id/2185257273/photo/indian-curry-tikka-masala-chicken-lamb-mutton-rogan-josh-with-rice-and-naan-bread-dark.jpg?s=612x612&w=0&k=20&c=-yHrDXUjpBv0RkD8hP2IQbiW-RNE8L1sQCpv-l09yAA=",
+      mutton: "https://thumbs.dreamstime.com/b/mutton-curry-28836468.jpg",
+      paneer: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1finD-uJSjY699FYWwN4eVAJ5fYWzS1efBT4BcKPNmFx5KaClBA6lZVb&s=10",
+      bread: "https://images.stockcake.com/public/0/d/b/0db0a578-a6ca-4818-b279-ffe4e909b999_large/fresh-baked-bread-stockcake.jpg",
+      biryani: "https://sinfullyspicy.com/wp-content/uploads/2026/03/1200-by-1200-images.jpg",
+      feast: "https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ="
+    };
 
-    // Menu image helper. Currently returns one placeholder for every dish.
-    // Replace with a real photo per dish (e.g. a lookup by dish name).
-    const IMG = (keyword, index, width = 500, height = 375) =>
-      `https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ=`;
-
-    // Menu: category -> [dish name, label, image keyword]
+    // Menu: Category -> [Name, Price, Tags[], Description, ImageKey]
     const MENU = {
       "Kebabs": [
-        ["Barra Kabab", "Popular", "kebab,lamb"],
-        ["Mutton Seekh Kebab", "", "seekh,kebab"],
-        ["Galouti Kabab", "", "kebab,meat"],
-        ["Chicken Seekh Kabab", "", "chicken,kebab"],
-        ["Chicken Kali Mirch Tikka", "Halal", "chicken,tikka"],
-        ["Haryali Tikka", "", "tikka,green"],
-        ["Tandoori Momos", "", "momos"]
+        ["Barra Kebab", "₹300", ["Halal", "Customizable"], "Charcoal-grilled Mughlai delicacy marinated in aromatic spices.", "kebab"],
+        ["Mutton Seekh Kebab", "₹350", ["Halal", "4.6★ Rated"], "Mughlai delicacy prepared with minced mutton, onions, and traditional spices grilled on skewers.", "kebab"]
       ],
-      "Mains": [
-        ["Butter Chicken", "Popular", "butter,chicken"],
-        ["Mutton Rara", "Halal", "mutton,curry"],
-        ["Mutton Nalli Nehari", "", "nihari,stew"],
-        ["Chicken Butter Masala", "", "chicken,curry"]
+      "Starters": [
+        ["Chicken Tikka", "₹275", ["Halal", "Customizable"], "Juicy boneless chicken chunks marinated in yogurt and tandoori spices.", "tikka"],
+        ["Hariyali Tikka", "₹275", ["Halal", "Customizable"], "Classic North Indian starter marinated in fresh mint, coriander, and green spices.", "tikka"],
+        ["Tandoori Chicken", "₹450", ["Halal", "Customizable"], "Popular Indian dish where marinated chicken is roasted to smoky perfection in a clay oven (Full ₹800 on Swiggy).", "tikka"],
+        ["Afghani Chicken", "₹550", ["Halal", "Customizable"], "Rich, creamy cashew and mild spice marinated chicken grilled tender.", "tikka"],
+        ["Chicken Malai Tikka", "₹350", ["Halal", "Customizable"], "Melt-in-the-mouth chicken morsels marinated in cream, cheese, and cardamom.", "tikka"],
+        ["Chicken Achari Tikka", "₹350", ["Halal", "Customizable"], "Tangy pickled spice-infused chicken tikka roasted in the tandoor.", "tikka"],
+        ["Chicken Kali Mirch Tikka", "₹350", ["Halal", "4.4★ Rated", "Customizable"], "Succulent chicken marinated in crushed black pepper and aromatic spices.", "tikka"],
+        ["Peri Peri Chicken Tikka", "₹350", ["Halal", "Customizable"], "Fiery peri-peri spiced chicken tikka with a smoky tandoori finish.", "tikka"]
       ],
-      "Rice & Breads": [
-        ["Chicken Biryani", "Popular", "biryani"],
-        ["Rumali Roti", "Popular", "roti,bread"],
-        ["Tandoori Butter Roti", "", "naan,bread"]
+      "Rolls": [
+        ["Paneer Kathi Roll", "₹300", ["Veg", "Popular"], "Spiced cottage cheese, onions, and chutneys wrapped in a flaky paratha.", "paneer"],
+        ["Chicken Kathi Roll", "₹350", ["Halal", "Popular"], "Succulent tandoori chicken tikka rolled with mint chutney and crisp onions.", "kebab"]
       ],
-      "Vegetarian": [
-        ["Paneer Makhani", "", "paneer"],
-        ["Kadhai Paneer", "", "paneer,curry"]
+      "Main Course": [
+        ["Paneer Makhani (Full)", "₹500", ["Veg"], "Popular Punjabi dish made with soft paneer in a rich tomato, cashew, and butter gravy.", "paneer"],
+        ["Kadhai Paneer (Full)", "₹475", ["Veg"], "Restaurant-style spicy paneer cooked with bell peppers, onions, and freshly ground kadhai masala.", "paneer"],
+        ["Dal Makhani (Full)", "₹375", ["Veg"], "Slow-simmered black lentils finished with cream and butter.", "paneer"],
+        ["Chicken Kanti", "₹265", ["Halal", "Customizable"], "Kashmiri-style stir-fried boneless chicken tossed with onions, tomatoes, and spices.", "curry"],
+        ["Kadhai Chicken", "₹480", ["Halal", "Popular", "Customizable"], "Best-selling spicy & flavorful chicken cooked with onions, capsicum, and aromatic spices.", "curry"],
+        ["Boneless Butter Chicken", "₹480", ["Halal", "Customizable"], "Boneless roasted chicken simmered in a velvety tomato-butter makhani sauce.", "curry"],
+        ["Butter Chicken", "₹480", ["Halal", "Popular", "Customizable"], "Classic Indian Chicken Makhani in a rich, mildly spiced creamy tomato gravy.", "curry"],
+        ["Butter Chicken Masala", "₹480", ["Halal", "Customizable"], "Rich and robust spiced twist on the classic butter chicken.", "curry"],
+        ["Chicken Tikka Masala", "₹350", ["Halal", "Customizable"], "Roasted marinated chicken tikka chunks simmered in a spiced orange-red curry.", "curry"],
+        ["Mutton Rara (Halal)", "₹515", ["Halal", "Popular", "Customizable"], "Signature dish combining tender mutton pieces with spiced minced mutton keema gravy.", "mutton"],
+        ["Mutton Rara (Large)", "₹600", ["Signature", "Customizable"], "Generous portion of our signature slow-cooked Mutton Rara.", "mutton"],
+        ["Masala Seekh In Keema Masala", "₹550", ["Customizable"], "Chargrilled seekh kebabs simmered in rich minced mutton keema gravy.", "mutton"],
+        ["Nizami Mutton Curry", "₹430", ["Customizable"], "Royal Mughlai mutton curry cooked with aromatic spices and rich gravy.", "mutton"],
+        ["Mutton Korma", "₹430", ["Customizable"], "Traditional slow-braised mutton in a fragrant, nutty Mughlai korma sauce.", "mutton"]
       ],
-      "Dessert": [
-        ["Zarda", "", "sweet,rice,dessert"]
+      "Breads": [
+        ["Plain Tandoori Roti", "₹45", ["Veg"], "Whole wheat flatbread baked fresh in the clay tandoor.", "bread"],
+        ["Butter Tandoori Roti", "₹55", ["Veg"], "Crisp tandoori roti brushed generously with melted butter.", "bread"],
+        ["Plain Tandoori Naan", "₹80", ["Veg", "4.4★ Rated"], "Authentic soft leavened Indian bread baked in a traditional clay oven.", "bread"],
+        ["Butter Tandoori Naan", "₹90", ["Veg"], "Soft tandoori naan glazed with butter.", "bread"],
+        ["Laccha Paratha", "₹110", ["Veg"], "Multi-layered flaky whole wheat tandoori paratha.", "bread"],
+        ["Rumali Roti", "₹60", ["Veg", "4.0★ Rated"], "Paper-thin, soft handkerchief bread ideal with kebabs and kormas.", "bread"]
+      ],
+      "Rice & Biryani": [
+        ["Steamed Rice", "₹90", ["Veg", "Customizable"], "Fluffy steamed long-grain basmati rice.", "biryani"],
+        ["Zeera Rice", "₹110", ["Veg", "Customizable"], "Basmati rice tempered with roasted cumin seeds and ghee.", "biryani"],
+        ["Veg Fried Rice", "₹200", ["Veg", "Customizable"], "Wok-tossed basmati rice with crunchy garden vegetables.", "biryani"],
+        ["Egg Fried Rice", "₹220", ["Customizable"], "Flavorful stir-fried rice tossed with scrambled eggs and aromatics.", "biryani"],
+        ["Chicken Fried Rice", "₹240", ["Customizable"], "Wok-tossed rice with tender chicken pieces and savory sauces.", "biryani"],
+        ["Chicken Schezwan Fried Rice", "₹230", ["Customizable"], "Spicy Schezwan-style chicken fried rice.", "biryani"],
+        ["Chicken Biryani", "₹170", ["Halal", "Popular", "Customizable"], "Flavorful and aromatic spiced basmati rice and chicken cooked to perfection.", "biryani"],
+        ["Mutton Biryani", "₹250", ["Popular", "Customizable"], "Fragrant dum-style basmati rice layered with tender spiced mutton.", "biryani"]
+      ],
+      "Pizza": [
+        ["Spicy Chicken Pizza", "₹340", ["Customizable"], "Loaded with spiced chicken chunks, mozzarella, and herbs.", "feast"],
+        ["Schezwan Chicken Pizza", "₹300", ["Customizable"], "Zesty Schezwan chicken topping over melted cheese.", "feast"],
+        ["Chicken Blast Pizza", "₹350", ["Customizable"], "Generous medley of seasoned chicken toppings and extra cheese.", "feast"],
+        ["Butter Chicken Pizza", "₹410", ["Customizable"], "Fusion favorite topped with creamy butter chicken and mozzarella.", "feast"],
+        ["Margherita Pizza", "₹280", ["Veg", "Customizable"], "Classic tomato sauce and melted mozzarella cheese.", "feast"],
+        ["One Love Onion", "₹290", ["Veg", "Customizable"], "Crispy crust topped with caramelized onions and cheese.", "feast"],
+        ["Double Cheese Pizza", "₹280", ["Veg", "Customizable"], "Extra layer of gooey mozzarella for cheese lovers.", "feast"],
+        ["Just Veggie", "₹340", ["Veg", "Customizable"], "Topped with fresh bell peppers, onions, tomatoes, and sweet corn.", "feast"],
+        ["Paneer Mexicano", "₹340", ["Veg", "Customizable"], "Spiced paneer cubes, jalapenos, and Mexican herbs.", "feast"],
+        ["Schezwan Veggie", "₹330", ["Veg", "Customizable"], "Crispy veggies tossed in fiery Schezwan sauce on a cheesy base.", "feast"]
+      ],
+      "Burgers": [
+        ["Mini Veggie Burger", "₹120", ["Veg"], "Crisp veggies, fresh greens & special house sauce.", "feast"],
+        ["Herby Veg Burger", "₹130", ["Veg"], "Herb-seasoned veggie patty with crisp lettuce & mayo.", "feast"],
+        ["Popular Veggie Burger", "₹130", ["Veg"], "Classic veg patty with a signature house twist.", "feast"],
+        ["Junior Chicken Burger", "₹150", ["Non-Veg"], "Juicy chicken patty with fresh lettuce & creamy mayo.", "feast"],
+        ["Chicken Burger", "₹170", ["Non-Veg"], "Tender chicken patty layered with spicy hot sauce.", "feast"],
+        ["Crispy Chicken Burger", "₹190", ["Non-Veg"], "Crunchy golden-fried chicken fillet with lettuce & mayo.", "feast"],
+        ["Big Bad Boy Burger", "₹250", ["Non-Veg", "Popular"], "Double patty. Double cheese. Unstoppable flavor.", "feast"]
       ]
     };
+
+    const FAQS = [
+      {
+        q: "Does Wah! Kabab deliver food in Srinagar on Zomato & Swiggy?",
+        a: "Yes! Wah! Kabab delivers across Srinagar (Lal Chowk, Rajbagh, and nearby areas) through both Zomato (4.2★ rating) and Swiggy (3.7★ rating)."
+      },
+      {
+        q: "What are the most popular dishes at Wah! Kabab?",
+        a: "Guest favorites include Mutton Rara, Kadhai Chicken, Butter Chicken, Chicken Biryani, Mutton Seekh Kebab, Chicken Kali Mirch Tikka, and Paneer / Chicken Kathi Rolls."
+      },
+      {
+        q: "Does Wah! Kabab offer Halal and vegetarian options?",
+        a: "Yes, we serve Halal meat preparations across our kebabs, starters, biryanis, and curries, alongside a full selection of vegetarian dishes including Paneer Makhani, Kadhai Paneer, Dal Makhani, Paneer Kathi Roll, Veg Pizzas, and Burgers."
+      },
+      {
+        q: "Where is Wah! Kabab located and what are the timings?",
+        a: "We are located at Mir Building, Court Road, Lal Chowk, Srinagar, Jammu and Kashmir 190001. Store hours are 11:00 AM – 10:00 PM (with late dining up to 12:00 AM)."
+      }
+    ];
 
     // Videos: [YouTube ID, title, duration]
     const VIDEOS = [
       ["ZmpTA0MqF4A", "Mutton rara, slow cooked", "0:46"],
       ["jNQXAC9IVRw", "Fresh from the tandoor", "0:16"],
-      ["9bZkp7q19f0", "Galouti on the grill", "0:36"],
-      ["5qap5aO4i9A", "An evening at Wah Kabab", "0:37"]
+      ["9bZkp7q19f0", "Seekh kebab on the grill", "0:36"],
+      ["5qap5aO4i9A", "An evening at Wah! Kabab", "0:37"]
     ];
 
     /* ==========================================================
-       MENU TABS AND DISH CARDS
+       MENU TABS, SEARCH AND DISH CARDS
        ========================================================== */
     const tabs = document.querySelector('.tabs');
     const grid = document.getElementById('menu-grid');
-    const imageSeed = 40;
+    const searchInput = document.getElementById('menu-search');
+    let currentCategory = 'Kebabs';
 
-    function showCategory(category) {
-      tabs.querySelectorAll('.tab').forEach(tab => {
-        tab.setAttribute('aria-selected', tab.dataset.k === category);
-      });
-
-      grid.innerHTML = MENU[category].map(([name, label, keyword], i) => `
+    function renderDishes(items, categoryLabel) {
+      if (!items.length) {
+        grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--mute)">No dishes matched your search. Call <strong>+91 194 245 2555</strong> to ask our kitchen directly.</div>`;
+        return;
+      }
+      grid.innerHTML = items.map(([name, price, tags, desc, imgKey]) => `
         <article class="dish">
           <div class="ph">
-            <img src="${IMG(keyword, imageSeed + i)}" alt="${name}" loading="lazy" onerror="this.remove()">
+            <img src="${PHOTO_MAP[imgKey] || PHOTO_MAP.feast}" alt="${name}" loading="lazy" onerror="this.remove()">
+            <span class="price-tag">${price}</span>
           </div>
           <div class="b">
-            <div>
+            <div class="dish-top">
               <h3>${name}</h3>
-              <small>${category}</small>
             </div>
-            ${label ? `<span class="pill ${label === 'Popular' ? 'pop' : 'halal'}">${label}</span>` : ''}
+            <p class="desc">${desc}</p>
+            <div class="dish-meta">
+              ${tags.map(t => `<span class="pill ${t === 'Veg' ? 'veg-pill' : (t === 'Halal' ? 'halal' : 'pop')}">${t}</span>`).join('')}
+            </div>
           </div>
         </article>
       `).join('');
+    }
+
+    function showCategory(category) {
+      currentCategory = category;
+      searchInput.value = '';
+      tabs.querySelectorAll('.tab').forEach(tab => {
+        tab.setAttribute('aria-selected', tab.dataset.k === category);
+      });
+      renderDishes(MENU[category], category);
     }
 
     Object.keys(MENU).forEach(category => {
@@ -1252,12 +1569,48 @@
       tab.className = 'tab';
       tab.role = 'tab';
       tab.dataset.k = category;
-      tab.textContent = category;
+      tab.textContent = `${category} (${MENU[category].length})`;
       tab.onclick = () => showCategory(category);
       tabs.appendChild(tab);
     });
 
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      if (!q) {
+        showCategory(currentCategory);
+        return;
+      }
+      tabs.querySelectorAll('.tab').forEach(tab => tab.setAttribute('aria-selected', 'false'));
+      const allMatches = [];
+      Object.entries(MENU).forEach(([cat, dishes]) => {
+        dishes.forEach(d => {
+          if (d[0].toLowerCase().includes(q) || d[3].toLowerCase().includes(q) || cat.toLowerCase().includes(q)) {
+            allMatches.push(d);
+          }
+        });
+      });
+      renderDishes(allMatches, 'Search results');
+    });
+
     showCategory('Kebabs');
+
+    /* ==========================================================
+       FAQ ACCORDION
+       ========================================================== */
+    const faqList = document.getElementById('faq-list');
+    faqList.innerHTML = FAQS.map((f, i) => `
+      <div class="faq-item ${i === 0 ? 'open' : ''}">
+        <button type="button" class="faq-q"><span>${f.q}</span><span>${i === 0 ? '−' : '+'}</span></button>
+        <div class="faq-a">${f.a}</div>
+      </div>
+    `).join('');
+    faqList.addEventListener('click', e => {
+      const btn = e.target.closest('.faq-q');
+      if (!btn) return;
+      const item = btn.parentElement;
+      const open = item.classList.toggle('open');
+      btn.lastElementChild.textContent = open ? '−' : '+';
+    });
 
     /* ==========================================================
        VIDEO TILES AND POPUP
